@@ -1,0 +1,107 @@
+<mat-sidenav-container class="example-container" *ngIf="showSidebar">
+    <mat-sidenav #drawer mode="side" opened role="navigation">
+        <mat-nav-list>
+            <div class="top-navigation-items">
+                <a class="sidenav-icon" mat-list-item (click)="navigateToFigOrBuyerDashboard()" matTooltip="actions" [matTooltipClass]="{'sidebar-tooltip': true}" [ngClass]="{'active': activeState == 'actions'}">
+                    <i class="icon-dashboard"></i>
+                </a>
+                <!--<a class="sidenav-icon" mat-list-item (click)="navigateToProjectOrContract()" matTooltip="{{folderIconText}}" [matTooltipClass]="{'sidebar-tooltip': true}" [ngClass]="{'active': activeState == 'projects' || activeState == 'contracts'}">
+                    <i class="icon-projects"></i>
+                </a>
+                <a class="sidenav-icon vcborder-bottom" mat-list-item routerLink='/actions' matTooltip="Actions" [matTooltipClass]="{'sidebar-tooltip': true}" [ngClass]="{'active': activeState == 'actions'}">
+                    <i class="icon-action"></i>
+                </a>
+                <a class="sidenav-icon" mat-list-item routerLink='/backupbuyers' matTooltip="Backup Buyers" [matTooltipClass]="{'sidebar-tooltip': true}" [ngClass]="{'active': activeState == 'backupbuyers'}">
+                    <i class="icon-backup-buyer"></i>
+                </a>
+                <a class="sidenav-icon" mat-list-item #fddfigTrigger="matMenuTrigger" [matMenuTriggerFor]="menu"
+                   matTooltip="Module" [matTooltipClass]="{'sidebar-tooltip': true}" *ngIf="showModuleSwitch" [ngClass]="{'active': fddfigTrigger.menuOpen}">
+                    <i class="icon-module"></i>
+                </a>-->
+            </div>
+            <div class="bottom-navigation-items">
+                <!--<a class="sidenav-icon vcborder-top" mat-list-item routerLink='/reports' matTooltip="Reports" [matTooltipClass]="{'sidebar-tooltip': true}"
+                   [ngClass]="{'active': activeState == 'reports'}">
+                    <i class="icon-reports"></i>
+                </a>-->
+                <a class="sidenav-icon" mat-list-item routerLink='/support' matTooltip="Support" 
+                   [matTooltipClass]="{'sidebar-tooltip': true}" *ngIf="supportTeam!=null && supportTeam!='' && supportTeam.includes(loggedInUserDetails.LoginName)"
+                   [ngClass]="{'active': activeState == 'support'}">
+                    <i class="icon-support"></i>
+                </a>
+                <!--<a class="sidenav-icon">
+                    <i class="icon-settings"></i>
+                </a>-->
+                <a class="sidenav-icon" [matMenuTriggerFor]="Feedback" #feedbackTrigger="matMenuTrigger" mat-list-item matTooltip="Feedback" [matTooltipClass]="{'sidebar-tooltip': true}"
+                   [ngClass]="{'active': feedbackTrigger.menuOpen}">
+                    <i class="icon-feedback"></i>
+                </a>
+                <a class="sidenav-icon" mat-list-item routerLink='/help' matTooltip="Help" 
+                   [matTooltipClass]="{'sidebar-tooltip': true}" [ngClass]="{'active': activeState == 'help'}">
+                    <i class="icon-help"></i>
+                </a>
+            </div>
+        </mat-nav-list>
+
+
+
+        <mat-menu #menu="matMenu" class="side-bar-menu" xPosition="after">
+            <div *ngFor="let submenu of menuList;" class="side-switch-main-div">
+
+                <mat-card class="mat-card module-switch" (click)="switchUserRoleView(submenu.UserSwitchMenu)" [style.background-color]="submenu.DivBGColor"
+                          [ngClass]="{'isMenuSelected':submenu.isSelected, 'isMenuUnselected': !submenu.isSelected}">
+                    <!--<mat-card-header>
+                      <span mat-card-avatar class="icon-common" [ngClass]="submenu.IconClass" [style.background-color]="submenu.IconBgColor"></span>
+                      <mat-card-title class="actioncard-title">{{ submenu.Title }}</mat-card-title>
+                      <mat-card-subtitle class="actioncard-subtitle">{{ submenu.Description }}</mat-card-subtitle>
+                    </mat-card-header>-->
+                    <a class="action-link mat-card" (mouseover)="setHover(submenu)" [style.background-color]="submenu.DivBGColor"
+                          (mouseout)="removeHover(submenu)">
+                        <div>
+                            <div [ngClass]="submenu.IconClass" class="icon-common" [style.color]="submenu.IconBgColor">
+
+                            </div>
+                            <div class="actioncard-title" [style.color]="submenu.IconBgColor">
+                                {{ submenu.Title }}
+                            </div>
+                        </div>
+                    </a>
+
+                    <!--<mat-card-footer class="actioncard-footer">
+                      <span>Go to page </span>
+                      <mat-icon style="font-size:15px; float:right;">call_made</mat-icon>
+                    </mat-card-footer>-->
+                </mat-card>
+            </div>
+        </mat-menu>
+
+        <mat-menu #Feedback="matMenu" xPosition="after" class="feedback-right-menu">
+            <div (click)="$event.stopPropagation();">
+                <form #feedBackForm="ngForm">
+                    <div class="row">
+                        <div class="col-sm-4 text-center px-0 pt-2 center-dis-just">
+                            <span class="feedback-icon-container">
+                                <i class="icon-vc icon-feedback feedback-white center-position feedback-menu-icon"></i>
+                            </span>
+                        </div>
+                        <div class="col-sm-8 pl-0">
+                            <div class="feedback-title">Feedback</div>
+                            <div class="feedback-question">How do you feel about the application?</div>
+                            <bar-rating [(rate)]="rate" [max]="5" name="rating" required [theme]="'stars'" [(ngModel)]="ratingDetails.Rating">
+                            </bar-rating>
+                        </div>
+                    </div>
+                    <div class="feedback-comments-title pt-1">Comments</div>
+                    <textarea rows="3" class="comments-txtarea form-control" name="feedback" required [(ngModel)]="ratingDetails.Comments"></textarea>
+                    <div class="float-right pt-4">
+                        <button mat-button type="submit" class="primary-button-1 submit-button"
+                                (click)="feedBackForm.valid && submitFeedBack(); feedbackTrigger.closeMenu()" [disabled]="!feedBackForm.valid">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </mat-menu>
+
+    </mat-sidenav>
+</mat-sidenav-container>

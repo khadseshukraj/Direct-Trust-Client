@@ -1,0 +1,156 @@
+@import '../../../../variables.scss';
+
+mat-sidenav {
+  width: 55px;
+  position: fixed;
+  top: 42px;
+  height: 100%;
+  background-color: #35393e;
+}
+
+.mat-drawer-container {
+  position: initial;
+}
+
+.mat-drawer-side {
+  border-right: $offwhite;
+}
+
+.mat-list-base {
+  padding-top: 0px;
+}
+
+.mat-list-base .mat-list-item {
+  height: 55px;  
+  transition: all .3s ease-in-out;
+}
+
+.mat-list-item {
+  &.vcborder-bottom {
+    border-bottom: 1px solid #ccc;
+  }
+
+  &.vcborder-top {
+    border-top: 1px solid #ccc;
+  }
+}
+
+
+.example-container img {
+  height: 25px;
+}
+
+.bottom-navigation-items {
+  position: absolute;
+  bottom: 17px;
+  left: 0;
+  padding-bottom: 25px;
+}
+
+.sidenav-icon {
+  color: $white !important;
+  font-size: 22px;
+}
+
+.sidenav-icon.disabled, .sidenav-icon.disabled:hover {
+  /*background-color: #d8d8d8 !important;*/
+  opacity: 0.2;
+  cursor: auto !important;
+  text-decoration: none;
+  color: $white !important;
+  height: 55px !important;
+  outline: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 16px;
+  position: relative;
+  height: inherit;
+}
+
+.example-container .mat-list-item:hover, .example-container .mat-list-item:active {
+    background-color: $pri-dark-blue;
+    color: $white !important;
+}
+
+.example-container .mat-list-item:hover [class^="icon-"]:before{
+  color: $white;
+}
+
+.active {
+    background-color: $pri-dark-blue !important;
+    color: $white !important;
+}
+
+::ng-deep .sidebar-tooltip, .mat-tooltip {
+  background-color: $white !important;
+  font-family: $montserratRegular !important;
+  border: 1px solid lightgray;  
+  color: $black !important;
+}
+
+.mat-drawer.mat-drawer-side {
+  z-index: 1;
+}
+
+.mat-list-base .mat-list-item.icon-disabled{
+  background: $disable-btn-color;
+  cursor: default;
+}
+
+
+.comments-txtarea.form-control:focus {
+  outline: none;
+  border: 1px solid #ced4da;
+  box-shadow: none;
+}
+
+.submit-button {
+  margin-bottom: 0.4em !important;
+}
+
+.feedback-title{
+  font-weight: 600;
+  font-size: 12px;
+}
+.feedback-question{
+  font-size: 12px;
+}
+
+.feedback-comments-title{
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.feedback-icon-container{
+  background: #0099ff;
+  width: 50px;
+  height: 50px;
+  display: block;
+  border-radius: 50%;
+}
+
+.center-dis-just{
+  display: flex;
+  justify-content: center;
+}
+
+.center-position {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedback-menu-icon{
+  font-size: 36px;
+  color: $white;
+  margin: 7px 0 0 0;
+}
+
+/*.actioncard-content .mat-card.module-switch:not(:last-child) {
+  border-bottom: none !important;
+}*/

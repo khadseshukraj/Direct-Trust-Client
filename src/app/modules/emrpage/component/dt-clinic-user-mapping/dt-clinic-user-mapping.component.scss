@@ -1,0 +1,47 @@
+.referrercontainer {
+    /*height: 400px;*/
+    overflow: auto;
+    width: 100%;
+    border: 1px solid slategrey;
+}
+
+.summary-table {
+    background: white;
+    height: calc(100vh - 160px);
+    overflow: auto;
+    border: 1px solid #bfbdbd;
+
+    .mat-header-cell {
+        min-width: 150px;
+    }
+
+    .mat-toolbar {
+        margin-top: 150px;
+        background-color: white;
+        justify-content: center
+    }
+}
+
+.summary-table .mat-table thead {
+    background: none !important;
+}
+
+.referrer-dialog-container .mat-dialog-container {
+    padding: 0px;
+    overflow-x: hidden;
+    height: 200px;
+}
+
+.createreferrer {
+    padding-right: 100px;
+}
+.pagewidth{
+    width:100%;
+}
+.fullwidth {
+    width: 100% !important;
+}
+th.mat-header-cell {
+    text-align: center;
+}
+

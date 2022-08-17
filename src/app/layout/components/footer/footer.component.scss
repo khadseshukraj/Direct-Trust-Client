@@ -1,0 +1,50 @@
+@import '../../../../variables.scss';
+
+:host {
+  position: fixed;
+  z-index: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.vc-footer {
+  background-color: transparent;
+  width: 100%;
+  max-height: 40px;
+  padding: 5px 1% 5px 0;
+  display: flex;
+  justify-content: space-between;
+
+  .leftFContent {
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 3px;
+    left: 0;
+  }
+
+  .rightFContent {
+    width: 100%;
+    text-align: right;
+  }
+
+  p, a {
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+  }
+}
+
+.vc-foot-left {
+  padding: 2px 0;
+}
+
+.vc-foot-right {
+  color: #6f6e6e;
+  text-align: center;
+  margin: 0 28%;
+}
+
+.txt-bold {
+  font-weight: 700;
+}

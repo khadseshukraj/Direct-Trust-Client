@@ -1,0 +1,141 @@
+<div mat-dialog-container style="overflow-x: hidden; margin: -18px;">
+    <div class="personalization-header-div" style="background:#5dbcd2;height: 35px;color:white;font-weight:300;">
+        {{defaultValues.FileName}}
+
+        <button mat-button class="float-right close-button" (click)="closeDialog()" tabindex="-1" style="margin-top: -6px;margin-right: -22px;">
+            <span style="font-size:25px;">&times;</span>
+        </button>
+    </div>
+    <!--<form #alloDataForm="ngForm">-->
+    <div class="personalization-tab-div">
+
+        <div style="height:320px;overflow-y:hidden;width:100%;overflow-x: hidden;padding:10px;">
+
+            <div class="row personalization-rows" style="height: 195px;">
+                <div class="col-sm-12" style="white-space:pre;">
+
+                    <!--<pre lang="xml">{{defaultValues.FileData}}</pre>-->
+                    <!--<pre style="margin-bottom: 0rem !important;">
+    <code [highlight]="defaultValues.FileData" style="margin-top:-15px;margin-bottom:-30px;"></code>
+    </pre>-->
+                    <div class="row personalization-rows">
+                        <div class="col-sm-12">
+                            <label for="birthtime">
+                                <span class="label-font">Title</span>:
+                                {{xmlclass.title}}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row personalization-rows">
+                        <div class="col-sm-4">
+                            <label for="firstname">
+                                <span class="label-font">First name </span>: {{xmlclass.firstName}}
+                            </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="firstname">
+                                <span class="label-font">Last name </span>: {{xmlclass.lastName}}
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="row personalization-rows">
+                        <div class="col-sm-12">
+                            <label for="birthtime">
+                                <span class="label-font">Birth Date </span>:
+                                {{xmlclass.birthTime| date: 'MMMM d, yyyy'}}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row personalization-rows">
+                        <div class="col-sm-12">
+                            <label for="address">
+                              
+                                    <span class="label-font">Address </span>:
+                               
+
+                                <span  *ngIf="xmlclass.city">
+
+                                    {{xmlclass.streetAddressLine}}, {{xmlclass.city}}, {{xmlclass.state}}, {{xmlclass.country}} - {{xmlclass.postalCode}}
+                                </span>
+
+
+
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row personalization-rows">
+                        <div class="col-sm-4">
+                            <label for="Phone">
+                                <span class="label-font">HP Phone </span>: {{xmlclass.phoneHP | phone:'US'}}
+                            </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="Phone">
+                                <span class="label-font">WP Phone </span>: {{xmlclass.phoneWP | phone:'US'}}
+                            </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="Phone">
+                                <span class="label-font">MC Phone </span>: {{xmlclass.phoneMC | phone:'US'}}
+                            </label>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row personalization-rows">
+                        <div class="col-sm-12">
+                            <label for="mrn">
+                                <span class="label-font">External MRN </span>: {{xmlclass.mrn}}
+                            </label>
+                        </div>
+                    </div>
+                  
+                    <div class="row personalization-rows solidborder-top">
+                        <div class="col-sm-12">
+                            <label for="doctor">
+                                <span class="label-font">Doctor </span>: {{xmlclass.doctorInfo}}
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="row personalization-rows">
+                        <div class="col-sm-12">
+                            <label for="npi">
+                                <span class="label-font">NPI </span>: {{xmlclass.npinumber}}
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="row personalization-rows">
+                        <div class="col-sm-4">
+                            <label for="clinic">
+                                <span class="label-font">Clinic/Hospital </span>: {{xmlclass.referrerClinic}}
+                            </label>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+                </div>
+            <div class="row personalization-rows" style="padding-top:70px;">
+                <div class="col-sm-12">
+                    <div class="float-right" style="padding-right: 24px;">
+                        <button class="btn btn-primary" (click)="viewMore()">Read raw XML</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+   
+    <!-- </form>-->
+</div>
+
+<div class="loader-wrap" *ngIf="loadingData">
+  <mat-spinner [diameter]="70"></mat-spinner>
+</div>

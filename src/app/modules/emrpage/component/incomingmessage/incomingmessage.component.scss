@@ -1,0 +1,247 @@
+.mat-tab-label {
+    font-size: 16px;
+    height: 30px !important;
+    min-width: 96px;
+    opacity: 1;
+    padding: 0px !important;
+    background-color: grey !important;
+}
+
+
+
+.referrercontainer {
+    /*height: 400px;*/
+    overflow: auto;
+    width: 100%;
+    border: 1px solid slategrey;
+}
+
+.summary-table {
+    background: white;
+    height: calc(100vh - 160px);
+    overflow: auto;
+    border: 1px solid #bfbdbd;
+
+    .mat-header-cell {
+        min-width: 150px;
+    }
+
+    .mat-toolbar {
+        margin-top: 150px;
+        background-color: white;
+        justify-content: center
+    }
+}
+
+.summary-table .mat-table thead {
+    background: none !important;
+}
+
+.referrer-dialog-container .mat-dialog-container {
+    padding: 0px;
+    overflow-x: hidden;
+    height: 200px;
+}
+
+.createreferrer {
+    padding-right: 100px;
+}
+
+table {
+    width: 100%;
+}
+
+tr.example-detail-row {
+    height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+}
+
+.example-element-row td {
+    border-bottom-width: 0;
+}
+
+.example-element-detail {
+    overflow: hidden;
+    display: flex;
+}
+
+.example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+}
+
+.example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+}
+
+.example-element-description {
+    padding: 16px;
+}
+
+.example-element-description-attribution {
+    opacity: 0.5;
+}
+.mat-row.hovered {
+    background: #C8C8C8; //#a6e4f3;
+    color: white;
+    cursor: pointer !important;
+}
+
+.mat-row.highlighted {
+    background: #C8C8C8; //#a6e4f3;
+    color: white;
+    cursor: pointer !important;
+}
+td.mat-cell {
+    border-right-style: none;
+}
+
+th.mat-header-cell {
+    text-align: center;
+    background: #5dbcd2;//#FB6E2C;
+}
+.mat-row.label-font-read {
+    font-weight: normal !important;
+}
+.mat-row.label-font-unread {
+    font-weight: bold !important;
+}
+.mat-row.read {
+    background: #C8C8C8;
+    font-weight: bold !important;
+}
+
+/* email*/
+:host {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+:host ::ng-deep .mat-tab-labels {
+    flex-direction: column;
+}
+
+mat-tab-group {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+:host ::ng-deep .mat-tab-body-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+mat-tab-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+:host ::ng-deep mat-ink-bar {
+    display: none;
+}
+
+:host ::ng-deep .mat-tab-label:not(:first-child) {
+    margin: 0 0px 0px 0px !important;
+}
+:host ::ng-deep .mat-tab-label {
+    font-size: 16px;
+    height: 30px !important;
+    min-width: 160px;
+    opacity: 1;
+    padding: 0px !important;
+    /*background-color: grey;*/
+    border:solid;
+    /*border-bottom:none;*/
+}
+:host ::ng-deep .mat-tab-label-container {
+    border: solid;
+}
+
+:host ::ng-deep .mat-tab-body-wrapper {
+    margin-left: -10px
+}
+
+.headbar {
+    margin-top: 0px;
+    background: #5dbcd2;
+    width: -23px;
+    height: 50px;
+    padding-top: 6px;
+    color: black !important;
+}
+.blackFont{
+    color:black !important;
+}
+.composeDiv {
+    /*height: 400px;*/
+    overflow:hidden;
+    width: 100%;
+    border: 1px solid slategrey;
+    padding:5px;
+}
+.button-border-radius-zero {
+    border-radius: 0px;
+}
+.headerstyle{
+    font-size:larger;
+    font-weight:300;
+}
+.list-group-item.active {
+    z-index: 2;
+    color: #fff !important;
+    background-color: #5dbcd2;
+    border-color: #5dbcd2;
+}
+.mat-input-element {
+    text-align: initial !important;
+    border-bottom: 2px solid #9a9494;
+}
+.OrangeFont {
+    color: #FB6E2C !important;
+}
+.WhiteFont {
+    color: white !important;
+}
+.listBackground {
+    background: #FB6E2C !important;
+    color: white !important;
+}
+.BlueFont {
+    color: #3f51b5 !important;
+}
+
+
+
+.attachment {
+    background: white;
+    border: solid 1px darkgrey;
+    width: 350px;
+    height: 48px;
+}
+.text-hidden {
+    display: block;
+    width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.textalign-left {
+    text-align: left;
+}

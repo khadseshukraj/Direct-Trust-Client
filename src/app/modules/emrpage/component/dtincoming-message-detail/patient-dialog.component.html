@@ -1,0 +1,59 @@
+<div mat-dialog-container style="overflow-x: hidden; margin: -18px;">
+    <div class="personalization-header-div" style="background:#5dbcd2;height: 35px;color:white;font-weight:300;">
+        Action
+
+        <button mat-button class="float-right close-button" (click)="closeDialog()" tabindex="-1" style="margin-top: -6px;">
+            <span style="font-size:25px;">&times;</span>
+        </button>
+    </div>
+    <!--<form #alloDataForm="ngForm">-->
+    <div class="personalization-tab-div">
+
+        <div class="row action-card-row" style="overflow:auto;height:72px;">
+            <div class="col-sm-12">
+                No patient found in team rehab, please choose one of the options below.
+            </div>
+            
+
+            </div>
+        <div class="row action-card-row">
+            <div class="col-sm-12">
+
+                <!--<button type="button" id="acceptID" class="btn btn-primary btn-ion-icon btn-circle mx-3" (click)="acceptDetails()">
+        <ion-icon name="arrow-forward">Accept</ion-icon>
+    </button>-->
+                <button type="button" class="btn btn-primary" (click)="acceptDetails()">
+                    Accept
+                </button>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-primary" (click)="rejectDetails()">
+                    Reject
+                </button>
+                <!--<button type="button" class="btn btn-primary btn-ion-icon btn-circle mx-3" (click)="rejectDetails()">
+        <ion-icon name="arrow-forward">Reject</ion-icon>
+    </button>-->
+                <!--<button type="button" id="acceptID" class="btn btn-primary btn-ion-icon btn-circle mx-3" (click)="redirectMainPage()">
+        <ion-icon name="arrow-forward">Cancel</ion-icon>
+    </button>-->
+
+            </div>
+        </div>
+            <!--<div class="row action-card-row" style="overflow:auto;max-height:calc(100vh - 105px);">
+
+                <div class="col-sm-12">
+
+                    <button type="button" id="acceptID" class="btn btn-primary btn-ion-icon btn-circle mx-3" (click)="redirectMainPage()">
+                        <ion-icon name="arrow-forward">Cancel</ion-icon>
+                    </button>
+
+                </div>
+
+            </div>-->
+
+        </div>
+       <!-- </form>-->
+</div>
+
+<div class="loader-wrap" *ngIf="loadingData">
+  <mat-spinner [diameter]="70"></mat-spinner>
+</div>

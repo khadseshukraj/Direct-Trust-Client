@@ -1,0 +1,28 @@
+@import "../../../../../variables.scss";
+
+.figtofdd-header-text {
+    justify-content: flex-start !important;
+    color: $pri-dark-blue;
+    font-size: 16px;
+    font-family: $montserratBold;
+}
+
+
+.form-control-div .mat-form-field {
+    width: 100%;
+}
+
+.margin-top-15 {
+    margin-top: 15px;
+}
+
+.page-header {
+    a {
+        cursor: pointer;
+        color: $pri-dark-blue !important;
+    }
+
+    .back-icon {
+        vertical-align: -webkit-baseline-middle;
+    }
+}

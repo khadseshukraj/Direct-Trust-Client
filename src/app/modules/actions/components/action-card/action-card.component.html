@@ -1,0 +1,22 @@
+<mat-card class="mat-card action-card-container" (mouseover)="setHover(actionCard)" (click)="goToAction(actionCard.Route)"
+          (mouseout)="removeHover(actionCard)">
+    <!--(click)="goToAction(actionCard.Route)"-->
+    <!--<mat-card class="mat-card action-card-container" [style.background-color]="actionCard.IconBgColor" [style.color]="white">-->
+
+    <a class="action-link mat-card" [style.background-color]="bgColor">
+        <div>
+            <div [ngClass]="actionCard.IconClass" [style.color]="actionCard.IconBgColor">
+                <ion-icon [name]="actionCard.IconClass" class="icon-common"></ion-icon>
+            </div>
+            <div class="actioncard-title" [style.color]="actionCard.IconBgColor">
+                {{ actionCard.Title }}
+            </div>
+            <div class="actioncard-subtitle" [style.color]="actionCard.IconBgColor">
+                {{ actionCard.Description }}
+            </div>
+        </div>
+    </a>
+</mat-card>
+
+
+

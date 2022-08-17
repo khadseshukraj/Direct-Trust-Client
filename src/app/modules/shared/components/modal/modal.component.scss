@@ -1,0 +1,25 @@
+@import "../../../../../variables.scss";
+
+div.message {
+  font-family: $montserratRegular;
+  padding-left: 25px;
+  padding-bottom: 0px;
+  font-size: 16px;
+  color: #2e2e2e;
+}
+
+div.info {
+  font-family: $montserratRegular;
+  padding-bottom: 0px;
+  font-size: 16px;
+  color: #2e2e2e;
+}
+
+.panel-container .mat-dialog-container {
+  padding: 0px;
+  overflow: hidden;
+}
+
+.margin-left {
+  margin-left: 15px;
+}

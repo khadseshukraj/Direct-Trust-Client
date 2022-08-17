@@ -1,0 +1,26 @@
+<table mat-table #table [dataSource]="gridDataSource" matSort>
+
+    <ng-container [matColumnDef]="column.columnDef" *ngFor="let column of columnDetails">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.header }}</th>
+        <td mat-cell *matCellDef="let element">
+            <u>
+                <a fxFlexFill href="" class="mat-row-link" *ngIf="column.header == 'Project No'" [routerLink]="'/projects/projectcreation'">
+                    <!-- <a fxFlexFill href="" class="mat-row-link" *ngIf="column.header == 'Project No'" [routerLink]="['/projects/projectcreation',element.ProjectNumber]"> -->
+                    {{ column.cell(element) }}
+                </a>
+            </u>
+            <span *ngIf="column.header != 'Project No'">
+                {{ column.cell(element) }}
+            </span>
+            <span *ngIf="column.header == 'Actions'">
+                <img src="../../../../../assets/images/Copy_Project_Icon.svg" height="20" />
+                <img src="../../../../../assets/images/Reassign_Icon.svg" height="20" />
+                <img src="../../../../../assets/images/Delete_Icon.svg" height="20" />
+            </span>
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>

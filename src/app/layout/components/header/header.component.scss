@@ -1,0 +1,123 @@
+@import '../../../../variables.scss';
+
+:host {
+  position: fixed;
+  width: 100vw;
+  z-index: 11;
+}
+
+
+.header {
+
+    .app-name {
+        font-family: $montserratRegular;
+        font-size: 18px;
+        color: $white;
+        /*margin: 0.75em 0.3em;*/
+        /*padding-left: 42px;*/
+    }
+
+    .logo-img {
+        height: 33px;
+        width: 40px;
+        padding-bottom: 0;
+        margin: 0 5px 1px 6px;
+    }
+
+    .user-img {
+        height: 25px;
+        padding-bottom: 13px;
+    }
+
+    .environment-label {
+        display: inline-block;
+        background-color: orange;
+        color: #003daf;
+        width: 50px;
+        text-align: center;
+        height: 30px;
+        font-size: 14px;
+    }
+}
+
+#headerSubText {
+  color: #00a3e0;
+}
+
+.left-section {
+  margin-left: 50px;
+}
+
+.mat-toolbar-single-row {
+    background: $pri-dark-blue;
+    height: 44px;
+    color: #fff;
+    -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+    padding: .2rem 1.7em .15em .18em;
+}
+
+::ng-deep .mat-menu-content {
+  padding: 8px;
+}
+
+#userToggleDiv {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.toggleButtonText {
+  margin-top: 10px;
+}
+
+.icon-logout {
+  color: $white;
+  font-size: 20px;
+}
+
+.user-div button {
+  outline: none;
+  font-family: $montserratRegular;  
+}
+
+.header-radio-button {
+  padding: 0 10px 0 0;
+  display:block;
+}
+
+.user-button {
+  box-shadow: 2.5px 4.33px 5px 0px rgba(117, 117, 117, 0.18);
+  outline: none;
+  background-color: $white;
+  width: 25px;
+  height: 25px;
+  line-height: 30px;
+  margin-right: 5px;
+}
+
+.logout-button {
+  min-width: 20px;
+  padding: 0;
+  top: -1px;
+}
+
+
+.admin-dropdown-toggle {
+  padding-right: 0;
+  margin-right: 1em;
+}
+
+.user-img-css-div {
+  margin-top: -3px;
+}
+
+.icon-user-login-css {
+  color: #003daf;
+  font-weight: 600;
+  font-size: 12px;
+}
+.svgdecorator{
+  height: 40px;
+margin-left: -20px;
+}

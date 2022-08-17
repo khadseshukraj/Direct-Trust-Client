@@ -1,0 +1,65 @@
+<div class="main-content-wrapper">
+    <!--<div class="page-header" style="margin-left: 10px;">
+        <span>Referral Page</span>
+    </div>-->
+    <div class="row action-card-row" style="overflow:auto;">
+        <div class="col-sm-6">
+            <div class="page-header">
+                <span>DT POC Not Found Messages </span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <!--<div class="float-right createreferrer">
+                <button mat-button class="primary-button-2" (click)="OpenCreateReferrerModal()">Create Referrer</button>
+
+            </div>-->
+        </div>
+    </div>
+
+    <div class="row action-card-row" style="overflow:auto;max-height:calc(100vh - 105px);">
+
+        <div class="referrercontainer">
+            <table mat-table [dataSource]="angularDataSource">
+                <!-- Position Column -->
+                <ng-container matColumnDef="Institute_ID">
+                    <th mat-header-cell *matHeaderCellDef>
+                        Institute ID
+
+                    </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Institute_ID}} </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="Note_ID">
+                    <th mat-header-cell *matHeaderCellDef> Note ID </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Note_ID}} </td>
+                </ng-container>
+                <ng-container matColumnDef="Patient_ID">
+                    <th mat-header-cell *matHeaderCellDef> Patient ID </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Patient_ID}} </td>
+                </ng-container>
+                <ng-container matColumnDef="POC_Status">
+                    <th mat-header-cell *matHeaderCellDef> POC Status </th>
+                    <td mat-cell *matCellDef="let element"> {{element.POC_Status}} </td>
+                </ng-container>
+
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-toolbar *ngIf="noRecordsMessage != ''" class="no-records-message"> {{ noRecordsMessage }} </mat-toolbar>
+        </div>
+        <mat-paginator *ngIf="angularDataSource?.data?.length > 0"
+                       [length]="DTincomingMessages?.TotalRecords"
+                       [pageIndex]="DTincomingMessages?.CurrentPage"
+                       [pageSize]="DTincomingMessages?.PageSize"
+                       [pageSizeOptions]="pageSizeOptions"
+                       (page)="pageEvent = getPaginationData($event);"
+                       showFirstLastButtons>
+        </mat-paginator>
+
+    </div>
+</div>
+<div class="loader-wrap" *ngIf="loadingData">
+    <mat-spinner [diameter]="70"></mat-spinner>
+</div>

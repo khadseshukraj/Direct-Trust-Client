@@ -1,0 +1,43 @@
+<div mat-dialog-container>
+  <!--<mat-toolbar *ngIf="style==1" color="primary" class="mat-elevation-z2">
+    <mat-card-header>{{title}}</mat-card-header>
+  </mat-toolbar>-->
+  <div class="message">
+    <p>
+      {{message}}
+    </p>
+  </div>
+  <div class="info" *ngIf="information!==''">
+    <div class="row">
+      <div class="col-sm-1">
+        <img src="../../../../../assets/images/SUCCESS.png" *ngIf="messageIcon == 0" />
+        <img src="../../../../../assets/images/ERROR.png" *ngIf="messageIcon == 1" />
+        <img src="../../../../../assets/images/INFO.png" *ngIf="messageIcon == 2" />
+        <img src="../../../../../assets/images/ALERT.png" *ngIf="messageIcon == 3" />
+      </div>
+      <div class="col-sm-11">
+        <p>
+          {{information}}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div style="padding: 5px;float:right">
+    <div *ngIf="button==0">
+      <button mat-button class="primary-button-2" (click)="onOk()" tabindex="-1">OK</button>
+    </div>
+    <div *ngIf="button==1">
+        <button mat-button class="primary-button-2 margin-left" (click)="onCancel()" tabindex="-1">CANCEL</button>
+        <button mat-button class="primary-button-2" (click)="onOk()" tabindex="-1">OK</button>
+    </div>
+    <div *ngIf="button==2">
+        <button mat-button class="primary-button-2 margin-left" (click)="onNo()" tabindex="-1">NO</button>
+        <button mat-button class="primary-button-2" (click)="onYes()" tabindex="-1">YES</button>
+    </div>
+    <div *ngIf="button==3">
+        <button mat-button class="primary-button-2 margin-left" (click)="onReject()" tabindex="-1">REJECT</button>
+        <button mat-button class="primary-button-2" (click)="onAccept()" tabindex="-1">ACCEPT</button>
+    </div>
+  </div>
+
+</div>

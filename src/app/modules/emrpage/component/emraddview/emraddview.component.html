@@ -1,0 +1,112 @@
+<div class="main-content-wrapper">
+    <!--<div class="page-header" style="margin-left: 10px;">
+        <span>Referral Page</span>
+    </div>-->
+    <div class="row action-card-row" style="overflow:auto;">
+        <div class="col-sm-6">
+            <div class="page-header">
+                <span>Referrer Maintenance</span>
+            </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="float-right createreferrer">
+                    <button class="btn btn-primary"  (click)="OpenCreateReferrerModal()">Create Referrer</button>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row action-card-row" style="overflow:auto;max-height:calc(100vh - 105px);">
+
+            <div class="referrercontainer">
+                <table mat-table [dataSource]="angularDataSource">
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="Institute_Name">
+                        <th mat-header-cell *matHeaderCellDef>
+                            Institute Name
+
+                        </th>
+                        <td mat-cell *matCellDef="let element" [title]="element.Institute_Name" class="width-70-percent"> {{element.Institute_Name | limitCharacters : 60}} </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <!--<ng-container matColumnDef="DT_Email_Address">
+        <th mat-header-cell *matHeaderCellDef> Referrer Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.DT_Email_Address | limitCharacters : 25}} </td>
+    </ng-container>-->
+                    <!-- Weight Column -->
+                    <!-- <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef > Weight </th>
+      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef > Symbol </th>
+      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container> -->
+
+                    <ng-container matColumnDef="Edit" sticky>
+                        <th mat-header-cell *matHeaderCellDef> Update / Delete </th>
+                        <td mat-cell *matCellDef="let element;let i = index;" class="width-30-percent">
+                            <!-- <a fxFlexFill href="" class="mat-row-link" (click)="!!getPersonalizationDetails()">EDIT</a> -->
+
+                            <span style="display:block">
+                                <a fxFlexFill href="" title="Edit" 
+                                   class="mat-row-link table-action-icons"
+                                   (click)="!!getReferrerDetail(element.RefID)">
+                                    <ion-icon name="create-outline" class="iconsize-medium handcursor"></ion-icon>
+                                </a>
+
+
+                                <a fxFlexFill href="" title="Delete"
+                                   class="mat-row-link table-action-icons"
+                                   (click)="!!deleteDetails(element.RefID,element.RefEmailID)">
+                                    <ion-icon name="trash-outline" class="iconsize-medium handcursor"></ion-icon>
+                                </a>
+                            </span>
+                            <!--<button mat-button [matMenuTriggerFor]="menu">
+                <span fxFlexFill>
+                    <ion-icon name="settings-outline"></ion-icon>
+                </span>
+            </button>
+            <mat-menu #menu="matMenu">
+
+                <span style="display:block">
+                    <a fxFlexFill href="" matTooltip="Update" [matTooltipClass]="{'sidebar-tooltip': true}"
+                       class="mat-row-link icon-copy table-action-icons"
+                       (click)="!!getReferrerDetail(element.RefID)">
+                        Update
+                    </a>
+                </span>
+                <span style="display:block">
+                    <a fxFlexFill href="" matTooltip="Delete" [matTooltipClass]="{'sidebar-tooltip': true}"
+                       class="mat-row-link icon-delete table-action-icons"
+                       (click)="!!deleteDetails(element.RefID,element.RefEmailID)">
+                        Delete
+                    </a>
+                </span>
+
+            </mat-menu>-->
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <mat-toolbar *ngIf="noRecordsMessage != ''" class="no-records-message"> {{ noRecordsMessage }} </mat-toolbar>
+            </div>
+            <mat-paginator *ngIf="angularDataSource?.data?.length > 0"
+                           [length]="DTReferrers?.TotalRecords"
+                           [pageIndex]="DTReferrers?.CurrentPage"
+                           [pageSize]="DTReferrers?.PageSize"
+                           [pageSizeOptions]="pageSizeOptions"
+                           (page)="pageEvent = getPaginationData($event);" style="width:100%"
+                           showFirstLastButtons>
+            </mat-paginator>
+
+        </div>
+    </div>
+<div class="loader-wrap" *ngIf="loadingData">
+    <mat-spinner [diameter]="70"></mat-spinner>
+</div>

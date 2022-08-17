@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\modules",
+    "\\src\\app\\modules\\emrpage",
+    "\\src\\app\\modules\\emrpage\\component",
+    "\\src\\app\\modules\\emrpage\\component\\dtincoming-message-detail",
+    "\\src\\app\\modules\\emrpage\\component\\incomingmessage",
+    "\\src\\assets",
+    "\\src\\assets\\images"
+  ],
+  "SelectedNode": "\\src\\app\\modules\\emrpage\\component\\incomingmessage\\incomingmessage.component.scss",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,504 @@
+<div class="main-content-wrapper" style="height: 550px;overflow: hidden;
+">
+    <!--<div class="page-header" style="margin-left: 10px;">
+        <span>Referral Page</span>
+    </div>-->
+    <!--<div class="row action-card-row" style="overflow: auto;
+    background: #969a9b;
+    padding-top: -7px;
+    margin-top: 0px;
+    color: white;
+    margin-bottom: -10px;padding:8px;margin-left:0px;">
+        <div class="col-sm-6">
+            <div class="page-header">
+
+                <button class="btn btn-primary button-radius" (click)="viewMore()">New Message</button>
+            </div>
+
+        </div>
+        <div class="col-sm-6">
+
+            <span style="display: block; text-align: right;" *ngIf="loggedInUserDetails.Roles.trim().toLowerCase() == 'front desk'">
+                <a fxFlexFill href="" title="Unread"
+                   class="mat-row-link table-action-icons"
+                   (click)="!!UpdateReadUnReadMessage('Unread')">
+                    <ion-icon name="mail-unread-outline" class="iconsize-medium-large handcursor"></ion-icon>
+                </a>
+
+                <a fxFlexFill href="" title="Read"
+                   class="mat-row-link table-action-icons"
+                   (click)="!!UpdateReadUnReadMessage('Read')">
+                    <ion-icon name="mail-open-outline" class="iconsize-medium-large handcursor"></ion-icon>
+                </a>
+            </span>
+        </div>
+    </div>-->
+    <div class="row action-card-row headbar">
+        <div class="col-sm-6">
+            <div class="page-header">
+                <!--<span>Inbox - Unprocessed Messages </span>-->
+                <!--<button class="btn btn-primary" style="margin-left:25px;background:#3f51b5 !important" (click)="openDiv('Compose');">
+                    <span class="WhiteFont">New Email</span>
+                </button>-->
+                <button type="button" style="margin-left:25px; !important" class="btn btn-primary button-border-radius-zero" (click)="openDiv('Compose');">New Email</button>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <!--<div class="float-right createreferrer">
+                <button mat-button class="primary-button-2" (click)="OpenCreateReferrerModal()">Create Referrer</button>
+
+            </div>-->
+            <span style="display:block;text-align:right;" *ngIf="loggedInUserDetails.Roles.trim().toLowerCase() == 'front desk' && isMailDivVisible">
+                <a fxFlexFill href="" title="Unread"
+                   class="mat-row-link table-action-icons BlueFont"
+                   (click)="!!UpdateReadUnReadMessage('Unread')">
+                    <ion-icon name="mail-unread-outline" class="iconsize-medium-large handcursor"></ion-icon>
+                </a>
+
+                <a fxFlexFill href="" title="Read"
+                   class="mat-row-link table-action-icons BlueFont"
+                   (click)="!!UpdateReadUnReadMessage('Read')">
+                    <ion-icon name="mail-open-outline" class="iconsize-medium-large handcursor"></ion-icon>
+                </a>
+            </span>
+        </div>
+    </div>
+    <mat-drawer-container class="example-container" autosize style="height:600px;text-align:center;" [class.drawer-opened]="drawer.opened">
+        <mat-drawer #drawer class="example-sidenav" mode="side" opened="true" style="width:16%;padding-top:1px;">
+
+            <!--<p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>-->
+            <!--<button (click)="showFiller = !showFiller" mat-raised-button>
+                Toggle extra text
+            </button>-->
+            <div class="row">
+                <div class="col-12">
+                    <div class="list-group" id="list-tab" role="tablist" style="margin-left: 9px">
+                        <!--<a (click)="openDiv('Compose');" [ngClass]="{'active': isComposeDivVisible}" class="list-group-item list-group-item-action button-border-radius-zero" id="list-home-list" data-toggle="list" role="tab" aria-controls="home">
+
+        New Email
+
+    </a>-->
+                        <a (click)="openDiv('Inbox');" [ngClass]="{'active': isMailDivVisible}" class="list-group-item list-group-item-action button-border-radius-zero BlueFont " id="list-home-list" data-toggle="list" role="tab" aria-controls="home">
+
+                            Inbox<span matBadge="{{unReadMessageCount}}" matBadgeColor="warn" style="right: -15px !important;top:9px;"></span>
+                        </a>
+                        <a (click)="openDiv('Sent');" [ngClass]="{'active': isSentDivVisible}" class="list-group-item list-group-item-action button-border-radius-zero BlueFont " id="list-profile-list" data-toggle="list" role="tab" aria-controls="profile">Sent</a>
+                        <!-- <a (click)="openDiv('Compose');" [ngClass]="{'active': isComposeDivVisible}" class="list-group-item list-group-item-action button-border-radius-zero OrangeFont" id="list-settings-list" data-toggle="list" role="tab" aria-controls="settings">New Email</a>-->
+                        <a (click)="openDiv('Deleted');" [ngClass]="{'active': isDeletedDivVisible}" class="list-group-item list-group-item-action button-border-radius-zero BlueFont"  id="list-blank-list" data-toggle="list" role="tab" aria-controls="blank">Deleted Items</a>
+                       
+                    </div>
+                </div>
+            </div>
+        </mat-drawer>
+
+        <div class="example-sidenav-content" style="padding-top: 1px;height: 500px;overflow: scroll;">
+            <div class="row action-card-row" style="margin: 0px 0px 0 0px !important;" [style.display]="isMailDivVisible ? 'block' : 'none'">
+                <!--style="overflow:auto;max-height:calc(100vh - 105px);"-->
+
+                <div class="referrercontainer">
+                    <table mat-table [dataSource]="angularDataSource">
+                        <ng-container matColumnDef="checkBox">
+                            <th mat-header-cell *matHeaderCellDef style="min-width:70px;">
+
+                                <div class="header-text" style="background: #5dbcd2 !important;">
+
+                                </div>
+                            </th>
+                            <td mat-cell *matCellDef="let element" class="padding-left option-column-style" (click)="$event.stopPropagation()">
+                                <!--<mat-radio-group name="Select" [(ngModel)]="selectedPatient">
+                            <mat-radio-button [value]="element.Prowid">
+                            </mat-radio-button>
+                        </mat-radio-group>-->
+                                <!--<mat-checkbox [(ngModel)]="selectedMessage" name="element.ID"></mat-checkbox>-->
+                                <span *ngIf="loggedInUserDetails.Roles.trim().toLowerCase() == 'front desk'">
+                                    <input type="checkbox"
+                                           name="readUnread"
+                                           value={{element.ID}}
+                                           [checked]="element.selected"
+                                           (change)="updateChecked(element.ID, $event)" />
+                                </span>
+
+                            </td>
+                        </ng-container>
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="From">
+                            <th mat-header-cell *matHeaderCellDef>
+                                From
+
+                            </th>
+                            <td mat-cell *matCellDef="let element" class="width-20-percent"><span>{{element.From}}</span></td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="To">
+                            <th mat-header-cell *matHeaderCellDef> To </th>
+                            <td mat-cell *matCellDef="let element" class="width-20-percent"><span>{{element.To}}</span></td>
+                        </ng-container>
+                        <ng-container matColumnDef="Received">
+                            <th mat-header-cell *matHeaderCellDef> Received </th>
+                            <td mat-cell *matCellDef="let element" class="width-20-percent"><span>{{element.Received | date: 'EEE, MMMM d, yyyy h:mm a'}}</span></td>
+                        </ng-container>
+                        <ng-container matColumnDef="Subject">
+                            <th mat-header-cell *matHeaderCellDef> Subject </th>
+                            <td mat-cell *matCellDef="let element" class="width-40-percent"><span>{{element.Subject}}</span></td>
+                        </ng-container>
+                        <ng-container matColumnDef="Delete">
+                            <th mat-header-cell *matHeaderCellDef style="min-width:70px;">
+
+                                <div class="header-text" style="background: #5dbcd2 !important;">
+
+                                </div>
+                            </th>
+                            <td mat-cell *matCellDef="let element" class="padding-left option-column-style" (click)="$event.stopPropagation()">
+
+                                <span *ngIf="loggedInUserDetails.Roles.trim().toLowerCase() == 'front desk'">
+                                    <a fxFlexFill href="" title="Delete Message"
+                                       class="mat-row-link table-action-icons" style="text-align:center;"
+                                       (click)="!!UpdateMessageInactive(element.ID)">
+                                        <ion-icon name="trash-outline" class="iconsize-medium handcursor"></ion-icon>
+                                    </a>
+                                </span>
+
+                            </td>
+                        </ng-container>
+
+                        <!--<ng-container matColumnDef="Action">
+                    <th mat-header-cell *matHeaderCellDef> Action </th>
+                    <td mat-cell *matCellDef="let element">
+
+                        <button mat-menu-item [routerLink]="['incomingmessagedetail', element.ID, 'edit']" [disabled]="loggedInUserDetails.Roles.toLocaleLowerCase()=='system administrator'">Detail</button>
+                    </td>
+                </ng-container>-->
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" class="example-detail-row"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getMessageDetail(row,'edit')"
+                            [ngClass]="{hovered: row.hovered,read: row.IsRead==null || loggedInUserDetails.Roles.trim().toLowerCase() != 'front desk',highlighted: selection.isSelected (row)}"
+                            (mouseover)="row.hovered = true" (mouseout)="row.hovered = false"></tr>
+                    </table>
+                    <mat-toolbar *ngIf="noRecordsMessage != ''" class="no-records-message"> {{ noRecordsMessage }} </mat-toolbar>
+                </div>
+                <mat-paginator *ngIf="angularDataSource?.data?.length > 0"
+                               [length]="DTincomingMessages?.TotalRecords"
+                               [pageIndex]="DTincomingMessages?.CurrentPage"
+                               [pageSize]="DTincomingMessages?.PageSize"
+                               [pageSizeOptions]="pageSizeOptions"
+                               (page)="pageEvent = getPaginationData($event);"
+                               showFirstLastButtons
+                               class="full-width">
+                </mat-paginator>
+
+            </div>
+            <div class="row action-card-row" style="margin: 0px 0px 0 0px !important;" [style.display]="isComposeDivVisible ? 'block' : 'none'">
+                <div class="composeDiv">
+                    <div class="row action-card-row">
+                        <div class="col-sm-12 headerstyle">
+
+                            <!--<span *ngIf="isEdit" style="float:left;font-size:22px;">{{DTMessageSent.Subject}}</span>-->
+                            <span *ngIf="!isEdit">Compose Email</span>
+
+                        </div>
+                    </div>
+                    <div class="row action-card-row">
+                        <div class="col-sm-1 textalign-left">
+
+                            <!--<h4><span class="badge badge-secondary button-border-radius-zero">To</span></h4>-->
+                            To:
+                        </div>
+                        <div class="col-sm-11">
+                            <!--<input type="email" class="form-control" id="EmailTo" placeholder="email@example.com">-->
+                            <!--<mat-form-field class="example-chip-list">-->
+                            <mat-chip-list #chipList aria-label="Fruit selection">
+                                <mat-chip *ngFor="let fruit of mails"
+                                          [selectable]="selectable"
+                                          [removable]="removable"
+                                          (removed)="remove(fruit)">
+                                    {{fruit}}
+                                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                </mat-chip>
+                                <input placeholder=""
+                                       #mailInput
+                                       [formControl]="fruitCtrl"
+                                       [matAutocomplete]="auto"
+                                       [matChipInputFor]="chipList"
+                                       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                       (matChipInputTokenEnd)="add($event)"
+                                       *ngIf="!isEdit">
+                            </mat-chip-list>
+                            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                                <mat-option *ngFor="let fruit of filteredmails | async" [value]="fruit">
+                                    {{fruit}}
+                                </mat-option>
+                            </mat-autocomplete>
+                            <!--</mat-form-field>-->
+                        </div>
+
+                    </div>
+                    <!--<div class="row action-card-row">
+                <div class="col-sm-2">
+
+
+                    Cc
+                </div>
+                <div class="col-sm-10">
+
+                    <mat-chip-list #ccchipList>
+                        <mat-chip *ngFor="let cc of ccmails"
+                                  [selectable]="selectable"
+                                  [removable]="removable"
+                                  (removed)="removecc(cc)">
+                            {{cc}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input placeholder=""
+                               #ccmailInput
+                               [formControl]="ccCtrl"
+                               [matAutocomplete]="ccauto"
+                               [matChipInputFor]="ccchipList"
+                               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                               (matChipInputTokenEnd)="addcc($event)">
+                    </mat-chip-list>
+                    <mat-autocomplete #ccauto="matAutocomplete" (optionSelected)="selectedcc($event)">
+                        <mat-option *ngFor="let cc of filteredccmails | async" [value]="cc">
+                            {{cc}}
+                        </mat-option>
+                    </mat-autocomplete>
+
+                </div>
+            </div>-->
+                    <div class="row action-card-row">
+                        <div class="col-sm-1 textalign-left">
+
+                            <!--<h4><span class="badge badge-secondary button-border-radius-zero">Subject</span></h4>-->
+                            Subject:
+                        </div>
+                        <div class="col-sm-11 textalign-left">
+                            <!--<input type="text" class="form-control" id="EmailSubject" [(ngModel)]="DTMessageSent.Subject">-->
+
+                            <span *ngIf="!isEdit"><input [disabled]="isEdit" matInput maxlength="400" type="text" id="EmailSubject" [(ngModel)]="DTMessageSent.Subject"></span>
+                            <label *ngIf="isEdit">{{DTMessageSent.Subject}}</label>
+                        </div>
+                    </div>
+                    <div class="row action-card-row" *ngIf="isEdit">
+                        <div class="col-sm-1 textalign-left">
+
+                            <!--<h4><span class="badge badge-secondary button-border-radius-zero">Subject</span></h4>-->
+                            Sent:
+                        </div>
+                        <div class="col-sm-11 textalign-left">
+                            <!--<input type="text" class="form-control" id="EmailSubject" [(ngModel)]="DTMessageSent.Subject">-->
+
+                            <label>{{DTMessageSent.Sent| date: 'EEE, MMMM d, yyyy h:mm a'}}</label>
+                        </div>
+                    </div>
+                    <div class="row action-card-row" *ngIf="!isEdit">
+                        <div class="col-sm-2">
+                            <span class="hidden-file" style="display:none;">
+                                <input type="file" #fileInput ng2FileSelect [uploader]="uploader" (onFileSelected)="onFileSelected($event)" />
+                            </span>
+                            <div class="btn-group" (click)="fileInput.click()">
+
+                                <div type="button" class="btn btn-primary button-border-radius-zero">
+                                    <span class="iconsize-medium"><ion-icon name="attach-outline"></ion-icon></span>
+                                    Attach File
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-10">
+
+
+
+                            <div *ngFor="let item of uploader.queue" class="attachment">
+                                <span style="background:border-box;" class="text-hidden">
+                                    {{ item?.file?.name }}
+
+                                </span>
+                                <span class="iconsize-medium" style="float: right;margin-top:-16px;cursor: pointer;" (click)="item.remove()"><ion-icon name="close-circle-outline"></ion-icon></span>
+                                <span>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</span>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="row action-card-row" *ngIf="isEdit">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-11">
+
+                            <div *ngFor="let item of DTMessageSent.Attachment" class="attachment" (click)="downloadAttachment(item)" style="cursor: pointer;">
+                                <span style="background:border-box;" class="text-hidden">
+                                    {{ item?.FileName }}
+
+                                </span>
+                                <span class="iconsize-medium" style="float: right;margin-top:-16px;cursor: pointer;padding-right: 10px;">
+                                    <ion-icon name="cloud-download-outline"></ion-icon>
+                                </span>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="row action-card-row">
+                        <div class="col-sm-12">
+                            <textarea [disabled]="isEdit" class="form-control" id="MessageBody" name="MessageBody" rows="9"
+                                      [(ngModel)]="DTMessageSent.MessageBody"></textarea>
+                        </div>
+                    </div>
+                    <!--<div class="row action-card-row">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-3 col-form-label" for="files">Attachment</label>
+                                <div class="col-sm-9">
+                                    <span class="hidden-file">
+                                        <input type="file" #fileInput ng2FileSelect [uploader]="uploader" (onFileSelected)="onFileSelected($event)" />
+                                    </span>
+                                    <div class="btn-group" (click)="fileInput.click()">
+                                        <button type="button" class="btn btn-primary btn-group-icon btn-group-divider">
+                                            <i class="ion-plus-round"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-primary">
+                                            Add Documents
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>-->
+                    <div class="row action-card-row">
+                        <div class="col-sm-12" style="text-align:right;">
+
+                            <button type="button" class="btn btn-dark button-border-radius-zero" (click)="CancelCompose()">Close</button> &nbsp;&nbsp;
+                            <button type="button" *ngIf="!isEdit" class="btn btn-primary button-border-radius-zero" (click)="sendEmail()">Send</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row action-card-row" style="margin: 0px 0px 0 0px !important;" [style.display]="isDeletedDivVisible ? 'block' : 'none'">
+                <!--style="overflow:auto;max-height:calc(100vh - 105px);"-->
+
+                <div class="referrercontainer">
+                    <table mat-table [dataSource]="deletedmessageangularDataSource">
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="From">
+                            <th mat-header-cell *matHeaderCellDef>
+                                From
+
+                            </th>
+                            <td mat-cell *matCellDef="let element" class="width-20-percent"><span>{{element.From}}</span></td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="To">
+                            <th mat-header-cell *matHeaderCellDef> To </th>
+                            <td mat-cell *matCellDef="let element" class="width-20-percent"><span>{{element.To}}</span></td>
+                        </ng-container>
+                        <ng-container matColumnDef="Received">
+                            <th mat-header-cell *matHeaderCellDef> Received </th>
+                            <td mat-cell *matCellDef="let element" class="width-20-percent"><span>{{element.Received | date: 'EEE, MMMM d, yyyy h:mm a'}}</span></td>
+                        </ng-container>
+                        <ng-container matColumnDef="Subject">
+                            <th mat-header-cell *matHeaderCellDef> Subject </th>
+                            <td mat-cell *matCellDef="let element" class="width-40-percent"><span>{{element.Subject}}</span></td>
+                        </ng-container>
+                        <ng-container matColumnDef="Delete">
+                            <th mat-header-cell *matHeaderCellDef style="min-width:70px;">
+
+                                <div class="header-text" style="background: #5dbcd2 !important;">
+
+                                </div>
+                            </th>
+                            <td mat-cell *matCellDef="let element" class="padding-left option-column-style" (click)="$event.stopPropagation()">
+
+                                <span *ngIf="loggedInUserDetails.Roles.trim().toLowerCase() == 'front desk'">
+                                    <a fxFlexFill href="" title="Delete Message"
+                                       class="mat-row-link table-action-icons" style="text-align:center;"
+                                       (click)="!!DeleteMessage(element.ID)">
+                                        <ion-icon name="trash-outline" class="iconsize-medium handcursor"></ion-icon>
+                                    </a>
+                                </span>
+
+                            </td>
+                        </ng-container>
+
+                        <!--<ng-container matColumnDef="Action">
+                    <th mat-header-cell *matHeaderCellDef> Action </th>
+                    <td mat-cell *matCellDef="let element">
+
+                        <button mat-menu-item [routerLink]="['incomingmessagedetail', element.ID, 'edit']" [disabled]="loggedInUserDetails.Roles.toLocaleLowerCase()=='system administrator'">Detail</button>
+                    </td>
+                </ng-container>-->
+
+                        <tr mat-header-row *matHeaderRowDef="deleteddisplayedColumns; sticky: true" class="example-detail-row"></tr>
+                        <tr mat-row *matRowDef="let row; columns: deleteddisplayedColumns;" (click)="getMessageDetail(row,'readonly')"
+                            [ngClass]="{hovered: row.hovered,read: row.IsRead==null || loggedInUserDetails.Roles.trim().toLowerCase() != 'front desk',highlighted: selection.isSelected (row)}"
+                            (mouseover)="row.hovered = true" (mouseout)="row.hovered = false"></tr>
+                    </table>
+                    <mat-toolbar *ngIf="noDeletedRecordsMessage != ''" class="no-records-message"> {{ noDeletedRecordsMessage }} </mat-toolbar>
+                </div>
+                <mat-paginator *ngIf="deletedmessageangularDataSource?.data?.length > 0"
+                               [length]="DTdeletedincomingMessages?.TotalRecords"
+                               [pageIndex]="DTdeletedincomingMessages?.CurrentPage"
+                               [pageSize]="DTdeletedincomingMessages?.PageSize"
+                               [pageSizeOptions]="pageSizeOptions"
+                               (page)="pageEvent = getDeletedMessagePaginationData($event);"
+                               showFirstLastButtons
+                               class="full-width">
+                </mat-paginator>
+
+            </div>
+            <div class="row action-card-row" style="margin: 0px 0px 0 0px !important;" [style.display]="isSentDivVisible ? 'block' : 'none'">
+                <div class="sentDiv">
+                    <table mat-table [dataSource]="angularDataSourceSentMessage">
+                        <!-- Position Column -->
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="To">
+                            <th mat-header-cell *matHeaderCellDef> To </th>
+                            <td mat-cell *matCellDef="let element" class="width-20-percent"><span>{{element.To}}</span></td>
+                        </ng-container>
+                        <ng-container matColumnDef="Received">
+                            <th mat-header-cell *matHeaderCellDef> Sent </th>
+                            <td mat-cell *matCellDef="let element" class="width-20-percent"><span>{{element.Sent | date: 'EEE, MMMM d, yyyy h:mm a'}}</span></td>
+                        </ng-container>
+                        <ng-container matColumnDef="Subject">
+                            <th mat-header-cell *matHeaderCellDef> Subject </th>
+                            <td mat-cell *matCellDef="let element" class="width-40-percent"><span>{{element.Subject}}</span></td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="sentdisplayedColumns; sticky: true" class="example-detail-row"></tr>
+                        <tr mat-row *matRowDef="let row; columns: sentdisplayedColumns;" (click)="getSentMessageDetail(row)"
+                            [ngClass]="{hovered: row.hovered , highlighted: sentselection.isSelected (row)}"
+                            (mouseover)="row.hovered = true" (mouseout)="row.hovered = false"></tr>
+
+
+                    </table>
+                    <mat-toolbar *ngIf="noSentRecordsMessage != ''" class="no-records-message"> {{ noSentRecordsMessage }} </mat-toolbar>
+                    <mat-paginator *ngIf="angularDataSourceSentMessage?.data?.length > 0"
+                                   [length]="DTMessageSentList?.TotalRecords"
+                                   [pageIndex]="DTMessageSentList?.CurrentPage"
+                                   [pageSize]="DTMessageSentList?.PageSize"
+                                   [pageSizeOptions]="pageSizeOptions"
+                                   (page)="pageEvent = getPaginationDataSentMessage($event);"
+                                   showFirstLastButtons
+                                   class="full-width">
+                    </mat-paginator>
+                </div>
+            </div>
+        </div>
+      
+
+    </mat-drawer-container>
+
+</div>
+
+<div class="loader-wrap" *ngIf="loadingData">
+    <mat-spinner [diameter]="70"></mat-spinner>
+</div>
+
+
+

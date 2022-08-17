@@ -1,0 +1,54 @@
+<div class="main-content-wrapper">
+    <!--<mat-grid-list rowHeight="300" [cols]="1">
+
+        <mat-grid-tile>
+          <form #loginForm="ngForm" *ngIf="!loadingData">
+              <div class="row action-card-row">
+                  <div class="col-sm-12">
+            <mat-form-field class="example-full-width long-field" style="width:100%">
+              <input matInput placeholder="User Name" required name="userNameInput" [(ngModel)]="userName"
+                     #userNameInput="ngModel" maxlength="60">
+
+              <mat-error *ngIf="userNameInput.hasError('required')">
+                User Name is required.
+              </mat-error>
+
+
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row action-card-row">
+            <div class="col-sm-12">
+            <mat-form-field style="width:100%">
+                <input matInput placeholder="Password" required name="passwordInput" [(ngModel)]="password"
+                #passwordInput="ngModel" maxlength="60" type="password">
+
+                <mat-error *ngIf="passwordInput.hasError('required')">
+                  Password is required.
+                </mat-error>
+            </mat-form-field>
+           </div>
+          </div>
+        <div class="row action-card-row">
+            <div class="col-sm-6">
+                <button mat-button class="primary-button-2" (click)="nextButtonClicked()">Login</button>
+            </div>
+            <div class="col-sm-6" style="top:8px;">
+                <div class="handcursor" (click)="authenticate()"><img src="../../../../../assets/images/googlebutton.png" style="height:30px;" /></div>
+
+            </div>
+
+        </div>
+
+
+          </form>
+          <div class="loader-wrap" *ngIf="loadingData">
+            <mat-spinner [diameter]="70"></mat-spinner>
+          </div>
+        </mat-grid-tile>
+
+    </mat-grid-list>-->
+    <div class="loader-wrap" *ngIf="loadingData">
+        <mat-spinner [diameter]="70"></mat-spinner>
+    </div>
+</div>

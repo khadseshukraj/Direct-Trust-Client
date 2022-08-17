@@ -1,0 +1,108 @@
+<div mat-dialog-container style="overflow-x: hidden; margin: -18px;">
+    <div class="personalization-header-div" style="background:#5dbcd2;height: 35px;color:white;font-weight:300;">
+     Choose Referrer
+        <button mat-button class="float-right close-button" (click)="closeModal()" tabindex="-1" style="margin-top: -6px;margin-right: -22px;">
+            <span style="font-size:25px;">&times;</span>
+        </button>
+    </div>
+    <!--<form #alloDataForm="ngForm">-->
+    <div class="personalization-tab-div">
+
+        <div style="height:450px;overflow-y:hidden;width:100%;overflow-x: hidden;">
+
+            <div class="row action-card-row">
+         
+                <div class="referrercontainer" style="width:100%;">
+                    <table mat-table [dataSource]="referrerDataSource">
+                        <ng-container matColumnDef="Option">
+                            <th mat-header-cell *matHeaderCellDef style="min-width:70px;">
+                                <div class="header-text">
+                                    Option
+                                </div>
+                            </th>
+                            <td mat-cell *matCellDef="let element" class="padding-left width-10-percent">
+                                <mat-radio-group name="Select" [(ngModel)]="selectedReferrer">
+                                    <mat-radio-button [value]="element.ReferrerID">
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Name">
+                            <th mat-header-cell *matHeaderCellDef>
+                                Name (First Last)
+
+                            </th>
+                            <td mat-cell *matCellDef="let element" [title]="element.FirstName" class="width-20-percent"> {{element.FirstName}} {{element.LastName}} </td>
+                        </ng-container>
+
+
+                        <ng-container matColumnDef="Email">
+                            <th mat-header-cell *matHeaderCellDef> Email </th>
+                            <td mat-cell *matCellDef="let element" [title]="element.Email" class="width-20-percent"> {{element.Email}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="NPINumber">
+                            <th mat-header-cell *matHeaderCellDef> NPINumber </th>
+                            <td mat-cell *matCellDef="let element" [title]="element.NPINumber" class="width-20-percent"> {{element.NPINumber}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Address">
+                            <th mat-header-cell *matHeaderCellDef> Address </th>
+                            <td mat-cell *matCellDef="let element" [title]="element.NPINumber" class="width-20-percent"> {{element.Address}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Phone">
+                            <th mat-header-cell *matHeaderCellDef> Phone </th>
+                            <td mat-cell *matCellDef="let element" [title]="element.Phone" class="width-20-percent"> {{element.Phone | phone:'US'}} </td>
+                        </ng-container>
+
+                        <!--<ng-container matColumnDef="Action">
+
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell class="align-center width-30-percent" *matCellDef="let element">
+
+            <a fxFlexFill href="" title="select referrer"
+               class="mat-row-link table-action-icons" style="text-align:center;"
+               (click)="!!acceptDetails(element.ReferrerID)">
+                <ion-icon name="person-outline" class="iconsize-medium handcursor"></ion-icon>
+            </a>
+        </td>
+    </ng-container>-->
+
+                        <tr mat-header-row *matHeaderRowDef="referrerdisplayedColumns; sticky: true"></tr>
+                        <tr mat-row *matRowDef="let row; columns: referrerdisplayedColumns;"></tr>
+                    </table>
+                    <mat-toolbar *ngIf="noreferrerRecordsMessage != ''" class="no-records-message"> {{ noreferrerRecordsMessage }} </mat-toolbar>
+                </div>
+                <mat-paginator *ngIf="referrerDataSource?.data?.length > 0"
+                               [length]="referrerlist?.TotalRecords"
+                               [pageIndex]="referrerlist?.CurrentPage"
+                               [pageSize]="referrerlist?.PageSize"
+                               [pageSizeOptions]="pageSizeOptions"
+                               (page)="pageEvent = getReferrerPaginationData($event);"
+                               class="full-width"
+                               showFirstLastButtons>
+                </mat-paginator>
+
+            </div>
+            <div class="row personalization-rows" style="padding-top:40px;">
+                <div class="col-sm-12">
+                    <div class="float-right" style="padding-right: 24px;">
+                        <button type="button" class="btn btn-primary" (click)="!!acceptDetails(1)" [disabled]="selectedReferrer==0" *ngIf="referrerDataSource?.data?.length > 0">
+
+                            Proceed With Selected Referrer
+                        </button>
+                        &nbsp; &nbsp;
+                        <button class="btn btn-primary" (click)="!!acceptDetails(0)">Create New Referrer</button> &nbsp; &nbsp;
+                        <button class="btn btn-primary" (click)="!!closeModal()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+   
+    <!-- </form>-->
+</div>
+
+<div class="loader-wrap" *ngIf="loadingData">
+  <mat-spinner [diameter]="70"></mat-spinner>
+</div>

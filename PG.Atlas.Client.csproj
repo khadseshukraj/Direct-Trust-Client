@@ -1,0 +1,841 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AC0E7F61-8CF1-4EC9-A039-F8A4A15D6894}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PG.Atlas.Client</RootNamespace>
+    <AssemblyName>PG.Atlas.Client</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <SccProjectName>%24/Atlas/PG.Atlas/PG.Atlas.Client</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>https://shukrajkhadse.visualstudio.com</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="karma.conf.js" />
+    <Content Include="node_modules\bootstrap\dist\css\bootstrap-grid.css" />
+    <Content Include="node_modules\bootstrap\dist\css\bootstrap-grid.min.css" />
+    <Content Include="node_modules\bootstrap\dist\css\bootstrap-reboot.css" />
+    <Content Include="node_modules\bootstrap\dist\css\bootstrap-reboot.min.css" />
+    <Content Include="node_modules\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="node_modules\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="node_modules\bootstrap\dist\js\bootstrap.bundle.js" />
+    <Content Include="node_modules\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <Content Include="node_modules\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="node_modules\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="node_modules\bootstrap\js\dist\alert.js" />
+    <Content Include="node_modules\bootstrap\js\dist\button.js" />
+    <Content Include="node_modules\bootstrap\js\dist\carousel.js" />
+    <Content Include="node_modules\bootstrap\js\dist\collapse.js" />
+    <Content Include="node_modules\bootstrap\js\dist\dropdown.js" />
+    <Content Include="node_modules\bootstrap\js\dist\index.js" />
+    <Content Include="node_modules\bootstrap\js\dist\modal.js" />
+    <Content Include="node_modules\bootstrap\js\dist\popover.js" />
+    <Content Include="node_modules\bootstrap\js\dist\scrollspy.js" />
+    <Content Include="node_modules\bootstrap\js\dist\tab.js" />
+    <Content Include="node_modules\bootstrap\js\dist\toast.js" />
+    <Content Include="node_modules\bootstrap\js\dist\tooltip.js" />
+    <Content Include="node_modules\bootstrap\js\dist\util.js" />
+    <Content Include="node_modules\bootstrap\js\src\alert.js" />
+    <Content Include="node_modules\bootstrap\js\src\button.js" />
+    <Content Include="node_modules\bootstrap\js\src\carousel.js" />
+    <Content Include="node_modules\bootstrap\js\src\collapse.js" />
+    <Content Include="node_modules\bootstrap\js\src\dropdown.js" />
+    <Content Include="node_modules\bootstrap\js\src\index.js" />
+    <Content Include="node_modules\bootstrap\js\src\modal.js" />
+    <Content Include="node_modules\bootstrap\js\src\popover.js" />
+    <Content Include="node_modules\bootstrap\js\src\scrollspy.js" />
+    <Content Include="node_modules\bootstrap\js\src\tab.js" />
+    <Content Include="node_modules\bootstrap\js\src\toast.js" />
+    <Content Include="node_modules\bootstrap\js\src\tools\sanitizer.js" />
+    <Content Include="node_modules\bootstrap\js\src\tooltip.js" />
+    <Content Include="node_modules\bootstrap\js\src\util.js" />
+    <Content Include="src\app\app.component.html" />
+    <Content Include="src\app\core\components\login\login.component.html" />
+    <Content Include="src\app\core\components\logout\logout.component.html" />
+    <Content Include="src\app\core\components\unauthorized\unauthorized.component.html" />
+    <Content Include="node_modules\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <Content Include="node_modules\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <Content Include="node_modules\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <Content Include="node_modules\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <Content Include="node_modules\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="node_modules\bootstrap\dist\css\bootstrap.min.css.map" />
+    <Content Include="node_modules\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <Content Include="node_modules\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <Content Include="node_modules\bootstrap\dist\js\bootstrap.js.map" />
+    <Content Include="node_modules\bootstrap\dist\js\bootstrap.min.js.map" />
+    <Content Include="node_modules\bootstrap\js\dist\alert.js.map" />
+    <Content Include="node_modules\bootstrap\js\dist\button.js.map" />
+    <Content Include="node_modules\bootstrap\js\dist\carousel.js.map" />
+    <Content Include="node_modules\bootstrap\js\dist\collapse.js.map" />
+    <Content Include="node_modules\bootstrap\js\dist\dropdown.js.map" />
+    <Content Include="node_modules\bootstrap\js\dist\index.js.map" />
+    <Content Include="node_modules\bootstrap\js\dist\modal.js.map" />
+    <Content Include="node_modules\bootstrap\js\dist\popover.js.map" />
+    <Content Include="node_modules\bootstrap\js\dist\scrollspy.js.map" />
+    <Content Include="node_modules\bootstrap\js\dist\tab.js.map" />
+    <Content Include="node_modules\bootstrap\js\dist\toast.js.map" />
+    <Content Include="node_modules\bootstrap\js\dist\tooltip.js.map" />
+    <Content Include="node_modules\bootstrap\js\dist\util.js.map" />
+    <Content Include="node_modules\bootstrap\LICENSE" />
+    <Content Include="node_modules\bootstrap\package.json" />
+    <Content Include="node_modules\bootstrap\README.md" />
+    <Content Include="node_modules\bootstrap\scss\bootstrap-grid.scss" />
+    <Content Include="node_modules\bootstrap\scss\bootstrap-reboot.scss" />
+    <Content Include="node_modules\bootstrap\scss\bootstrap.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_alert.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_background-variant.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_badge.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_border-radius.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_box-shadow.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_breakpoints.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_buttons.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_caret.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_clearfix.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_deprecate.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_float.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_forms.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_gradients.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_grid-framework.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_grid.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_hover.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_image.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_list-group.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_lists.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_nav-divider.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_pagination.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_reset-text.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_resize.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_screen-reader.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_size.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_table-row.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_text-emphasis.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_text-hide.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_text-truncate.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_transition.scss" />
+    <Content Include="node_modules\bootstrap\scss\mixins\_visibility.scss" />
+    <Content Include="node_modules\bootstrap\scss\utilities\_align.scss" />
+    <Content Include="node_modules\bootstrap\scss\utilities\_background.scss" />
+    <Content Include="node_modules\bootstrap\scss\utilities\_borders.scss" />
+    <Content Include="node_modules\bootstrap\scss\utilities\_clearfix.scss" />
+    <Content Include="node_modules\bootstrap\scss\utilities\_display.scss" />
+    <Content Include="node_modules\bootstrap\scss\utilities\_embed.scss" />
+    <Content Include="node_modules\bootstrap\scss\utilities\_flex.scss" />
+    <Content Include="node_modules\bootstrap\scss\utilities\_float.scss" />
+    <Content Include="node_modules\bootstrap\scss\utilities\_overflow.scss" />
+    <Content Include="node_modules\bootstrap\scss\utilities\_position.scss" />
+    <Content Include="node_modules\bootstrap\scss\utilities\_screenreaders.scss" />
+    <Content Include="node_modules\bootstrap\scss\utilities\_shadows.scss" />
+    <Content Include="node_modules\bootstrap\scss\utilities\_sizing.scss" />
+    <Content Include="node_modules\bootstrap\scss\utilities\_spacing.scss" />
+    <Content Include="node_modules\bootstrap\scss\utilities\_stretched-link.scss" />
+    <Content Include="node_modules\bootstrap\scss\utilities\_text.scss" />
+    <Content Include="node_modules\bootstrap\scss\utilities\_visibility.scss" />
+    <Content Include="node_modules\bootstrap\scss\vendor\_rfs.scss" />
+    <Content Include="node_modules\bootstrap\scss\_alert.scss" />
+    <Content Include="node_modules\bootstrap\scss\_badge.scss" />
+    <Content Include="node_modules\bootstrap\scss\_breadcrumb.scss" />
+    <Content Include="node_modules\bootstrap\scss\_button-group.scss" />
+    <Content Include="node_modules\bootstrap\scss\_buttons.scss" />
+    <Content Include="node_modules\bootstrap\scss\_card.scss" />
+    <Content Include="node_modules\bootstrap\scss\_carousel.scss" />
+    <Content Include="node_modules\bootstrap\scss\_close.scss" />
+    <Content Include="node_modules\bootstrap\scss\_code.scss" />
+    <Content Include="node_modules\bootstrap\scss\_custom-forms.scss" />
+    <Content Include="node_modules\bootstrap\scss\_dropdown.scss" />
+    <Content Include="node_modules\bootstrap\scss\_forms.scss" />
+    <Content Include="node_modules\bootstrap\scss\_functions.scss" />
+    <Content Include="node_modules\bootstrap\scss\_grid.scss" />
+    <Content Include="node_modules\bootstrap\scss\_images.scss" />
+    <Content Include="node_modules\bootstrap\scss\_input-group.scss" />
+    <Content Include="node_modules\bootstrap\scss\_jumbotron.scss" />
+    <Content Include="node_modules\bootstrap\scss\_list-group.scss" />
+    <Content Include="node_modules\bootstrap\scss\_media.scss" />
+    <Content Include="node_modules\bootstrap\scss\_mixins.scss" />
+    <Content Include="node_modules\bootstrap\scss\_modal.scss" />
+    <Content Include="node_modules\bootstrap\scss\_nav.scss" />
+    <Content Include="node_modules\bootstrap\scss\_navbar.scss" />
+    <Content Include="node_modules\bootstrap\scss\_pagination.scss" />
+    <Content Include="node_modules\bootstrap\scss\_popover.scss" />
+    <Content Include="node_modules\bootstrap\scss\_print.scss" />
+    <Content Include="node_modules\bootstrap\scss\_progress.scss" />
+    <Content Include="node_modules\bootstrap\scss\_reboot.scss" />
+    <Content Include="node_modules\bootstrap\scss\_root.scss" />
+    <Content Include="node_modules\bootstrap\scss\_spinners.scss" />
+    <Content Include="node_modules\bootstrap\scss\_tables.scss" />
+    <Content Include="node_modules\bootstrap\scss\_toasts.scss" />
+    <Content Include="node_modules\bootstrap\scss\_tooltip.scss" />
+    <Content Include="node_modules\bootstrap\scss\_transitions.scss" />
+    <Content Include="node_modules\bootstrap\scss\_type.scss" />
+    <Content Include="node_modules\bootstrap\scss\_utilities.scss" />
+    <Content Include="node_modules\bootstrap\scss\_variables.scss" />
+    <Content Include="src\app\layout\components\footer\footer.component.html" />
+    <Content Include="src\app\layout\components\header\header.component.html" />
+    <Content Include="src\app\layout\components\sidebar\sidebar.component.html" />
+    <Content Include="src\app\modules\actions\components\action-card\action-card.component.html" />
+    <Content Include="src\app\modules\actions\components\action\action.component.html" />
+    <TypeScriptCompile Include="src\app\core\services\pending-changes.guard.ts" />
+    <TypeScriptCompile Include="src\app\modules\actions\components\fig-run-prices\fig-run-prices.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\actions\components\fig-run-prices\fig-run-prices.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\actions\run-prices-guard.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\actions\interfaces\iaction-cards.ts" />
+    <Content Include="src\app\modules\actions\components\fig-run-prices\fig-run-prices.component.html" />
+    <Content Include="src\app\modules\backup-buyer\components\backup-buyer\assign-backup-buyer\assign-backup-buyer.component.html" />
+    <Content Include="src\app\modules\backup-buyer\components\backup-buyer\assign-main-buyer\assign-main-buyer.component.html" />
+    <Content Include="src\app\modules\backup-buyer\components\backup-buyer\backedup-projects\backedup-projects.component.html" />
+    <Content Include="src\app\modules\backup-buyer\components\backup-buyer\backedup-projects\bakckedup-project-dialog\bakckedup-project-dialog.component.html" />
+    <Content Include="src\app\modules\backup-buyer\components\backup-buyer\backup-buyer-for\backup-buyer-for.component.html" />
+    <Content Include="src\app\modules\backup-buyer\components\backup-buyer\backup-buyer.component.html" />
+    <Content Include="src\app\modules\backup-buyer\components\backup-buyer\my-backup-buyers\my-backup-buyers.component.html" />
+    <Content Include="src\app\modules\contracts-creation\components\contract-reassign\contract-reassign.component.html" />
+    <Content Include="src\app\modules\contracts-creation\components\contracts-list\my-contracts\fig-volume-file-upload-modal.component.html" />
+    <Content Include="src\app\modules\fig-master-data-maintenance\components\fig-master-data\fig-master-data-maintenance-file-upload-modal.component.html" />
+    <Content Include="src\app\modules\fig-master-data-maintenance\components\fig-master-data\fig-master-data-maintenance.component.html" />
+    <Content Include="src\app\modules\commodity-impact\components\commodity-impact-flow\commodity-impact-flow.component.html" />
+    <Content Include="src\app\modules\commodity-impact\components\commodity-impact-list\commodity-impact.component.html" />
+    <Content Include="src\app\modules\commodity-impact\components\commodity-impact-list\pricesource-file-upload-modal.component.html" />
+    <Content Include="src\app\modules\contracts-creation\components\contract-flow\add-contract\add-contract.component.html" />
+    <Content Include="src\app\modules\contracts-creation\components\contract-flow\add-pricing-mechanism\add-pricing-mechanism.component.html" />
+    <Content Include="src\app\modules\contracts-creation\components\contract-flow\add-pricing-mechanism\pricing-mechanism-tab\pricing-mechanism-tab.component.html" />
+    <Content Include="src\app\modules\contracts-creation\components\contract-flow\contract-bu-allocation\contract-bu-allocation.component.html" />
+    <Content Include="src\app\modules\contracts-creation\components\contract-flow\contract-flow.component.html" />
+    <Content Include="src\app\modules\contracts-creation\components\contracts-filter\contracts-filter.component.html" />
+    <Content Include="src\app\modules\contracts-creation\components\contracts-list\contracts-list.component.html" />
+    <Content Include="src\app\modules\contracts-creation\components\contracts-list\my-contracts\my-contracts.component.html" />
+    <Content Include="src\app\modules\contracts-creation\components\contracts-list\my-drafts\my-drafts.component.html" />
+    <Content Include="src\app\modules\dashboard\components\dashboard\dashboard.component.html" />
+    <Content Include="src\app\modules\fig-dashboard\components\fig-dashboard\fig-dashboard.component.html" />
+    <Content Include="src\app\modules\fig-master-data-maintenance\components\fig-to-fdd\fig-to-fdd.component.html" />
+    <Content Include="src\app\modules\help\components\help\help.component.html" />
+    <Content Include="src\app\modules\project-creation\components\project-flow\buallocation\buallocation-confirmation-dialog.html" />
+    <Content Include="src\app\modules\project-creation\components\project-flow\buallocation\buallocation.component.html" />
+    <Content Include="src\app\modules\project-creation\components\project-flow\category-allocation\category-allocation.component.html" />
+    <Content Include="src\app\modules\project-creation\components\project-flow\project-flow.component.html" />
+    <Content Include="src\app\modules\project-creation\components\project-flow\project-register\approve-adjtorejproject-confirmation-dialog.html" />
+    <Content Include="src\app\modules\project-creation\components\project-flow\project-register\linkregproject-confirmation-dialog.html" />
+    <Content Include="src\app\modules\project-creation\components\project-flow\project-register\project-register.component.html" />
+    <Content Include="src\app\modules\project-creation\components\project-reassign\assign-to-buyer\assign-to-buyer.component.html" />
+    <Content Include="src\app\modules\project-creation\components\project-reassign\assign-to-fna\assign-to-fna.component.html" />
+    <Content Include="src\app\modules\project-creation\components\project-reassign\assigned-project-list\assigned-project-list.component.html" />
+    <Content Include="src\app\modules\project-creation\components\project-reassign\project-reassign.component.html" />
+    <Content Include="src\app\modules\project-creation\components\projects-list\backup-buyer-projects\backup-buyer-projects.component.html" />
+    <Content Include="src\app\modules\project-creation\components\projects-list\my-projects\my-projects.component.html" />
+    <Content Include="src\app\modules\project-creation\components\projects-list\my-projects\personalization-dialog.component.html" />
+    <Content Include="src\app\modules\project-creation\components\projects-list\projects-list.component.scss" />
+    <Content Include="src\app\modules\project-creation\components\projects-list\projects-list.component.html" />
+    <Content Include="src\app\modules\reports\components\report-container\fig-fdd-without-categories\fig-fdd-without-categories.component.html" />
+    <Content Include="src\app\modules\reports\components\report-card\report-card.component.html" />
+    <Content Include="src\app\modules\reports\components\report-container\buyers-desk\buyers-desk.component.html" />
+    <Content Include="src\app\modules\reports\components\report-container\fdd-apollo-i-template\fdd-apollo-i-template.component.html" />
+    <Content Include="src\app\modules\reports\components\report-container\fdd-monthly-ppv-comparison\fdd-monthly-ppv-comparison.component.html" />
+    <Content Include="src\app\modules\reports\components\report-container\fdd-monthly-ppv\fdd-monthly-ppv.component.html" />
+    <Content Include="src\app\modules\reports\components\report-container\fig-buyers-desk\fig-buyers-desk.component.html" />
+    <Content Include="src\app\modules\reports\components\report-container\fig-chronology-current-month\fig-chronology-current-month.component.html" />
+    <Content Include="src\app\modules\reports\components\report-container\fig-chronology-official-forecast\fig-chronology-official-forecast.component.html" />
+    <Content Include="src\app\modules\reports\components\report-container\fig-commodity-impact-current-month\fig-commodity-impact-current-month.component.html" />
+    <Content Include="src\app\modules\reports\components\report-container\fig-commodity-impact-official-forecast\fig-commodity-impact-official-forecast.component.html" />
+    <Content Include="src\app\modules\reports\components\report-container\fna-desk\fna-desk.component.html" />
+    <Content Include="src\app\modules\reports\components\report\report.component.html" />
+    <Content Include="src\app\modules\shared\components\angular-grid\angular-grid.component.html" />
+    <Content Include="src\app\modules\shared\components\bar-chart\bar-chart.component.html" />
+    <Content Include="src\app\modules\shared\components\file-download\file-download.component.html" />
+    <Content Include="src\app\modules\shared\components\file-upload\file-upload-modal.component.html" />
+    <Content Include="src\app\modules\shared\components\file-upload\file-upload.component.html" />
+    <Content Include="src\app\modules\shared\components\filter\advanced\advanced.component.html" />
+    <Content Include="src\app\modules\shared\components\filter\basic\basic.component.html" />
+    <Content Include="src\app\modules\shared\components\filter\filter.component.scss" />
+    <Content Include="src\app\modules\shared\components\bar-chart\bar-chart.component.scss" />
+    <Content Include="src\app\modules\shared\components\line-chart\line-chart.component.scss" />
+    <Content Include="src\app\modules\shared\components\modal\modal.component.html" />
+    <Content Include="src\app\modules\shared\components\notification\notification.component.html" />
+    <Content Include="src\app\modules\shared\components\pie-chart\pie-chart.component.scss" />
+    <Content Include="src\app\modules\shared\components\world-map-chart\world-map-chart.component.scss" />
+    <Content Include="src\app\modules\shared\components\filter\filter.component.html" />
+    <Content Include="src\app\modules\shared\components\line-chart\line-chart.component.html" />
+    <Content Include="src\app\modules\shared\components\pie-chart\pie-chart.component.html" />
+    <Content Include="src\app\modules\shared\components\world-map-chart\world-map-chart.component.html" />
+    <Content Include="src\app\modules\support\components\allocation-keys-maintenance\allocation-file-upload-modal\allocation-file-upload-modal.component.html" />
+    <Content Include="src\app\modules\support\components\allocation-keys-maintenance\allocation-file-upload-modal\allocation-file-upload.component.html" />
+    <Content Include="src\app\modules\support\components\allocation-keys-maintenance\allocation-filter\allocation-filter.component.html" />
+    <Content Include="src\app\modules\support\components\allocation-keys-maintenance\allocation-keys-maintenance.component.html" />
+    <Content Include="src\app\modules\support\components\allocation-keys-maintenance\edit-allocation\edit-allocation.component.html" />
+    <Content Include="src\app\modules\support\components\appollo-template-maintenance\appollo-template-maintenance.component.html" />
+    <Content Include="src\app\modules\support\components\appollo-template\appollo-template-file-upload-modal.component.html" />
+    <Content Include="src\app\modules\support\components\carry-over\carry-over.component.html" />
+    <Content Include="src\app\modules\support\components\dummy-cycle-roll-over\dummy-cycle-roll-over.component.html" />
+    <Content Include="src\app\modules\support\components\appollo-template\appollo-template.component.html" />
+    <Content Include="src\app\modules\support\components\manage-cycles\add-edit-cycle\add-edit-cycle.component.html" />
+    <Content Include="src\app\modules\support\components\manage-cycles\manage-cycles.component.html" />
+    <Content Include="src\app\modules\support\components\manage-users\add-edit-user\add-edit-user.component.html" />
+    <Content Include="src\app\modules\support\components\manage-users\manage-users.component.html" />
+    <Content Include="src\app\modules\support\components\roll-over-contracts\roll-over-contracts.component.html" />
+    <Content Include="src\app\modules\support\components\roll-over-future-projects\roll-over-future-projects.component.html" />
+    <Content Include="src\app\modules\support\components\roll-over\roll-over.component.html" />
+    <Content Include="src\app\modules\support\components\support.component.html" />
+    <Content Include="src\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="src\assets\fonts\ico-moon-v03\icomoon.svg" />
+    <Content Include="src\assets\fonts\ico-moon-v04\icomoon.svg" />
+    <Content Include="src\assets\fonts\ico-moon-v05\icomoon.svg" />
+    <Content Include="src\assets\fonts\ico-moon-v06\icomoon.svg" />
+    <Content Include="src\assets\fonts\ico-moon-v07\icomoon-07\demo-files\demo.css" />
+    <Content Include="src\assets\fonts\ico-moon-v07\icomoon-07\demo-files\demo.js" />
+    <Content Include="src\assets\fonts\ico-moon-v07\icomoon-07\demo.html" />
+    <Content Include="src\assets\fonts\ico-moon-v07\icomoon-07\fonts\icomoon.svg" />
+    <Content Include="src\assets\fonts\ico-moon-v07\icomoon-07\Read Me.txt" />
+    <Content Include="src\assets\fonts\ico-moon-v07\icomoon-07\style.css" />
+    <Content Include="src\assets\fonts\ico-moon-v07\icomoon.svg" />
+    <Content Include="src\assets\fonts\ico-moon-v08\icomoon.svg" />
+    <Content Include="src\assets\fonts\ico-moon-v08\icomoon\demo-files\demo.css" />
+    <Content Include="src\assets\fonts\ico-moon-v08\icomoon\demo-files\demo.js" />
+    <Content Include="src\assets\fonts\ico-moon-v08\icomoon\demo.html" />
+    <Content Include="src\assets\fonts\ico-moon-v08\icomoon\fonts\icomoon.svg" />
+    <Content Include="src\assets\fonts\ico-moon-v08\icomoon\Read Me.txt" />
+    <Content Include="src\assets\fonts\ico-moon-v08\icomoon\style.css" />
+    <Content Include="src\assets\images\ALERT G.png" />
+    <Content Include="src\assets\images\ALERT.png" />
+    <Content Include="src\assets\images\Calendar_Icon.svg" />
+    <Content Include="src\assets\images\Chemical_Filter_Icon.svg" />
+    <Content Include="src\assets\images\close-button.png" />
+    <Content Include="src\assets\images\Close_Icon.svg" />
+    <Content Include="src\assets\images\Copy_Project_Icon.svg" />
+    <Content Include="src\assets\images\Create_Project_Icon.svg" />
+    <Content Include="src\assets\images\Delete_Icon.svg" />
+    <Content Include="src\assets\images\download excel.svg" />
+    <Content Include="src\assets\images\Download_Icon.svg" />
+    <Content Include="src\assets\images\Earth_GIF.gif" />
+    <Content Include="src\assets\images\ERROR G.png" />
+    <Content Include="src\assets\images\ERROR.png" />
+    <Content Include="src\assets\images\External_Supply_Filter_Icon.svg" />
+    <Content Include="src\assets\images\Filter_Icon.svg" />
+    <Content Include="src\assets\images\Header_Logo.svg" />
+    <Content Include="src\assets\images\Header_Logout.svg" />
+    <Content Include="src\assets\images\INFO G.png" />
+    <Content Include="src\assets\images\INFO.png" />
+    <Content Include="src\assets\images\Nav_Icon_Action.svg" />
+    <Content Include="src\assets\images\Nav_Icon_Backup Buyer.svg" />
+    <Content Include="src\assets\images\Nav_Icon_Dashboard.svg" />
+    <Content Include="src\assets\images\Nav_Icon_Feedback.svg" />
+    <Content Include="src\assets\images\Nav_Icon_Help.svg" />
+    <Content Include="src\assets\images\Nav_Icon_Module.svg" />
+    <Content Include="src\assets\images\Nav_Icon_Projects.svg" />
+    <Content Include="src\assets\images\Nav_Icon_Reports.svg" />
+    <Content Include="src\assets\images\Nav_Icon_Settings.svg" />
+    <Content Include="src\assets\images\Packaging_Filter_Icon.svg" />
+    <Content Include="src\assets\images\pg-logo-white-txt.svg" />
+    <Content Include="src\assets\images\Reassign_Icon.svg" />
+    <Content Include="src\assets\images\Search_Icon.svg" />
+    <Content Include="src\assets\images\SUCCESS G.png" />
+    <Content Include="src\assets\images\SUCCESS.png" />
+    <Content Include="src\assets\images\upload excel.svg" />
+    <Content Include="src\assets\images\Upload_Icon.svg" />
+    <Content Include="src\favicon.ico" />
+    <Content Include="src\index.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="src\variables.scss" />
+    <Content Include="src\assets\fonts\adellesans-regular-webfont.ttf" />
+    <Content Include="src\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="src\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="src\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="src\assets\fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="angular.json" />
+    <Content Include="browserslist" />
+    <Content Include="package.json" />
+    <None Include="packages.config" />
+    <Content Include="README.md" />
+    <Content Include="src\app\app.component.scss" />
+    <Content Include="src\assets\.gitkeep" />
+    <Content Include="src\styles.scss" />
+    <Content Include="tsconfig.app.json" />
+    <Content Include="tsconfig.json" />
+    <Content Include="tsconfig.spec.json" />
+    <Content Include="tslint.json" />
+    <Content Include="src\app\modules\shared\components\filter\advanced\advanced.component.scss" />
+    <Content Include="src\app\modules\shared\components\filter\basic\basic.component.scss" />
+    <Content Include="src\app\core\components\login\login.component.scss" />
+    <Content Include="src\app\modules\project-creation\components\projects-list\backup-buyer-projects\backup-buyer-projects.component.scss" />
+    <Content Include="src\app\modules\project-creation\components\projects-list\my-projects\my-projects.component.scss" />
+    <Content Include="src\app\modules\shared\components\angular-grid\angular-grid.component.scss" />
+    <Content Include="src\assets\fonts\Montserrat-Bold.otf" />
+    <Content Include="src\assets\fonts\Montserrat-Bold.ttf" />
+    <Content Include="src\assets\fonts\Montserrat-Regular.otf" />
+    <Content Include="src\assets\fonts\Montserrat-Regular.ttf" />
+    <Content Include="src\assets\fonts\Montserrat-SemiBold.otf" />
+    <Content Include="src\assets\fonts\Montserrat-SemiBold.ttf" />
+    <Content Include="src\assets\fonts\Montserrat-Bold.eot" />
+    <Content Include="src\assets\fonts\Montserrat-Bold.woff" />
+    <Content Include="src\assets\fonts\Montserrat-Bold.woff2" />
+    <Content Include="src\assets\fonts\Montserrat-Regular.eot" />
+    <Content Include="src\assets\fonts\Montserrat-Regular.woff" />
+    <Content Include="src\assets\fonts\Montserrat-Regular.woff2" />
+    <Content Include="src\assets\fonts\Montserrat-SemiBold.eot" />
+    <Content Include="src\assets\fonts\Montserrat-SemiBold.woff" />
+    <Content Include="src\assets\fonts\Montserrat-SemiBold.woff2" />
+    <Content Include="src\app\modules\project-creation\components\project-flow\buallocation\buallocation.component.scss" />
+    <Content Include="src\app\modules\project-creation\components\project-flow\category-allocation\category-allocation.component.scss" />
+    <Content Include="src\app\modules\project-creation\components\project-flow\project-flow.component.scss" />
+    <Content Include="src\app\modules\project-creation\components\project-flow\project-register\project-register.component.scss" />
+    <Content Include="src\app\modules\dashboard\components\dashboard\dashboard.component.scss" />
+    <Content Include="src\app\modules\backup-buyer\components\backup-buyer\backup-buyer.component.scss" />
+    <Content Include="src\app\modules\reports\components\report-card\report-card.component.scss" />
+    <Content Include="src\app\modules\reports\components\report\report.component.scss" />
+    <Content Include="src\app\modules\actions\components\action-card\action-card.component.scss" />
+    <Content Include="src\app\modules\actions\components\action\action.component.scss" />
+    <Content Include="src\app\layout\components\footer\footer.component.scss" />
+    <Content Include="src\app\layout\components\header\header.component.scss" />
+    <Content Include="src\app\layout\components\sidebar\sidebar.component.scss" />
+    <Content Include="src\assets\fonts\ico-moon-v03\icomoon.eot" />
+    <Content Include="src\assets\fonts\ico-moon-v03\icomoon.ttf" />
+    <Content Include="src\assets\fonts\ico-moon-v03\icomoon.woff" />
+    <Content Include="src\app\core\components\logout\logout.component.scss" />
+    <Content Include="src\app\modules\shared\components\modal\modal.component.scss" />
+    <Content Include="src\app\modules\contracts-creation\components\contracts-list\contracts-list.component.scss" />
+    <Content Include="src\app\modules\contracts-creation\components\contracts-list\my-contracts\my-contracts.component.scss" />
+    <Content Include="src\app\modules\contracts-creation\components\contracts-list\my-drafts\my-drafts.component.scss" />
+    <Content Include="src\app\modules\support\components\carry-over\carry-over.component.scss" />
+    <Content Include="src\app\modules\support\components\roll-over\roll-over.component.scss" />
+    <Content Include="src\app\modules\contracts-creation\components\contract-flow\add-contract\add-contract.component.scss" />
+    <Content Include="src\app\modules\contracts-creation\components\contract-flow\contract-flow.component.scss" />
+    <Content Include="src\app\modules\contracts-creation\components\contract-flow\add-pricing-mechanism\add-pricing-mechanism.component.scss" />
+    <Content Include="src\app\modules\contracts-creation\components\contract-flow\contract-bu-allocation\contract-bu-allocation.component.scss" />
+    <Content Include="src\app\modules\contracts-creation\components\contract-flow\add-pricing-mechanism\pricing-mechanism-tab\pricing-mechanism-tab.component.scss" />
+    <Content Include="src\app\modules\contracts-creation\components\contracts-filter\contracts-filter.component.scss" />
+    <Content Include="src\app\modules\support\components\support.component.scss" />
+    <Content Include="src\app\modules\shared\components\file-upload\file-upload.component.scss" />
+    <Content Include="src\app\modules\commodity-impact\components\commodity-impact-list\commodity-impact.component.scss" />
+    <Content Include="src\app\modules\commodity-impact\components\commodity-impact-flow\commodity-impact-flow.component.scss" />
+    <Content Include="tsconfig.es5.json" />
+    <Content Include="src\app\modules\fig-dashboard\components\fig-dashboard\fig-dashboard.component.scss" />
+    <Content Include="src\app\modules\support\components\allocation-keys-maintenance\allocation-keys-maintenance.component.scss" />
+    <Content Include="src\app\modules\support\components\allocation-keys-maintenance\edit-allocation\edit-allocation.component.scss" />
+    <Content Include="src\app\modules\support\components\allocation-keys-maintenance\allocation-filter\allocation-filter.component.scss" />
+    <Content Include="src\assets\fonts\ico-moon-v04\icomoon.eot" />
+    <Content Include="src\assets\fonts\ico-moon-v04\icomoon.ttf" />
+    <Content Include="src\assets\fonts\ico-moon-v04\icomoon.woff" />
+    <Content Include="src\app\modules\backup-buyer\components\backup-buyer\assign-backup-buyer\assign-backup-buyer.component.scss" />
+    <Content Include="src\app\modules\backup-buyer\components\backup-buyer\assign-main-buyer\assign-main-buyer.component.scss" />
+    <Content Include="src\app\modules\backup-buyer\components\backup-buyer\backedup-projects\backedup-projects.component.scss" />
+    <Content Include="src\app\modules\backup-buyer\components\backup-buyer\backup-buyer-for\backup-buyer-for.component.scss" />
+    <Content Include="src\app\modules\backup-buyer\components\backup-buyer\my-backup-buyers\my-backup-buyers.component.scss" />
+    <Content Include="src\app\modules\support\components\allocation-keys-maintenance\allocation-file-upload-modal\allocation-file-upload.component.scss" />
+    <Content Include="src\assets\fonts\ico-moon-v05\icomoon.eot" />
+    <Content Include="src\assets\fonts\ico-moon-v05\icomoon.ttf" />
+    <Content Include="src\assets\fonts\ico-moon-v05\icomoon.woff" />
+    <Content Include="src\app\modules\project-creation\components\project-reassign\project-reassign.component.scss" />
+    <Content Include="src\app\modules\backup-buyer\components\backup-buyer\backedup-projects\bakckedup-project-dialog\bakckedup-project-dialog.component.scss" />
+    <Content Include="src\app\modules\project-creation\components\project-reassign\assign-to-buyer\assign-to-buyer.component.scss" />
+    <Content Include="src\app\modules\project-creation\components\project-reassign\assign-to-fna\assign-to-fna.component.scss" />
+    <Content Include="src\app\modules\project-creation\components\project-reassign\assigned-project-list\assigned-project-list.component.scss" />
+    <Content Include="src\assets\fonts\ico-moon-v06\icomoon.eot" />
+    <Content Include="src\assets\fonts\ico-moon-v06\icomoon.ttf" />
+    <Content Include="src\assets\fonts\ico-moon-v06\icomoon.woff" />
+    <Content Include="src\app\modules\fig-master-data-maintenance\components\fig-master-data\fig-master-data-maintenance.component.scss" />
+    <Content Include="src\app\modules\contracts-creation\components\contract-reassign\contract-reassign.component.scss" />
+    <Content Include="src\app\modules\fig-master-data-maintenance\components\fig-to-fdd\fig-to-fdd.component.scss" />
+    <Content Include="src\app\modules\actions\components\fig-run-prices\fig-run-prices.component.scss" />
+    <Content Include="src\app\modules\support\components\roll-over-contracts\roll-over-contracts.component.scss" />
+    <Content Include="src\app\modules\support\components\dummy-cycle-roll-over\dummy-cycle-roll-over.component.scss" />
+    <Content Include="src\app\modules\support\components\roll-over-future-projects\roll-over-future-projects.component.scss" />
+    <Content Include="src\app\modules\support\components\appollo-template\appollo-template.component.scss" />
+    <Content Include="src\assets\fonts\ico-moon-v07\icomoon-07.zip" />
+    <Content Include="src\assets\fonts\ico-moon-v07\icomoon-07\fonts\icomoon.eot" />
+    <Content Include="src\assets\fonts\ico-moon-v07\icomoon-07\fonts\icomoon.ttf" />
+    <Content Include="src\assets\fonts\ico-moon-v07\icomoon-07\fonts\icomoon.woff" />
+    <Content Include="src\assets\fonts\ico-moon-v07\icomoon-07\selection.json" />
+    <Content Include="src\assets\fonts\ico-moon-v07\icomoon.eot" />
+    <Content Include="src\assets\fonts\ico-moon-v07\icomoon.ttf" />
+    <Content Include="src\assets\fonts\ico-moon-v07\icomoon.woff" />
+    <Content Include="src\assets\fonts\ico-moon-v07\selection.json" />
+    <Content Include="src\assets\fonts\ico-moon-v08\ico-moon-v08.json" />
+    <Content Include="src\assets\fonts\ico-moon-v08\icomoon.eot" />
+    <Content Include="src\assets\fonts\ico-moon-v08\icomoon.ttf" />
+    <Content Include="src\assets\fonts\ico-moon-v08\icomoon.woff" />
+    <Content Include="src\assets\fonts\ico-moon-v08\icomoon.zip" />
+    <Content Include="src\assets\fonts\ico-moon-v08\icomoon\fonts\icomoon.eot" />
+    <Content Include="src\assets\fonts\ico-moon-v08\icomoon\fonts\icomoon.ttf" />
+    <Content Include="src\assets\fonts\ico-moon-v08\icomoon\fonts\icomoon.woff" />
+    <Content Include="src\assets\fonts\ico-moon-v08\icomoon\selection.json" />
+    <Content Include="src\app\modules\support\components\appollo-template-maintenance\appollo-template-maintenance.component.scss" />
+    <Content Include="src\app\modules\shared\components\notification\notification.component.scss" />
+    <Content Include="src\app\modules\shared\components\file-download\file-download.component.scss" />
+    <Content Include="src\app\modules\reports\components\report-container\fdd-apollo-i-template\fdd-apollo-i-template.component.scss" />
+    <Content Include="src\app\modules\reports\components\report-container\buyers-desk\buyers-desk.component.scss" />
+    <Content Include="src\app\modules\reports\components\report-container\fdd-monthly-ppv-comparison\fdd-monthly-ppv-comparison.component.scss" />
+    <Content Include="src\app\modules\reports\components\report-container\fdd-monthly-ppv\fdd-monthly-ppv.component.scss" />
+    <Content Include="src\app\modules\reports\components\report-container\fig-buyers-desk\fig-buyers-desk.component.scss" />
+    <Content Include="src\app\modules\reports\components\report-container\fig-chronology-current-month\fig-chronology-current-month.component.scss" />
+    <Content Include="src\app\modules\reports\components\report-container\fig-chronology-official-forecast\fig-chronology-official-forecast.component.scss" />
+    <Content Include="src\app\modules\reports\components\report-container\fig-commodity-impact-current-month\fig-commodity-impact-current-month.component.scss" />
+    <Content Include="src\app\modules\reports\components\report-container\fig-commodity-impact-official-forecast\fig-commodity-impact-official-forecast.component.scss" />
+    <Content Include="src\app\modules\reports\components\report-container\fna-desk\fna-desk.component.scss" />
+    <Content Include="src\app\modules\support\components\manage-users\manage-users.component.scss" />
+    <Content Include="src\app\modules\support\components\manage-users\add-edit-user\add-edit-user.component.scss" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="src\app\modules\support\components\manage-cycles\add-edit-cycle\add-edit-cycle.component.scss" />
+    <Content Include="src\app\modules\support\components\manage-cycles\manage-cycles.component.scss" />
+    <Content Include="src\app\modules\reports\components\report-container\fig-fdd-without-categories\fig-fdd-without-categories.component.scss" />
+    <Content Include="src\app\modules\help\components\help\help.component.scss" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\app-routing.module.ts" />
+    <TypeScriptCompile Include="src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\app.component.ts" />
+    <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\core\components\login\login.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\core\components\login\login.component.ts" />
+    <TypeScriptCompile Include="src\app\core\components\logout\logout.component.ts" />
+    <TypeScriptCompile Include="src\app\core\components\unauthorized\unauthorized.component.ts" />
+    <TypeScriptCompile Include="src\app\core\services\api.service.ts" />
+    <TypeScriptCompile Include="src\app\core\services\auth-guard.service.ts" />
+    <TypeScriptCompile Include="src\app\core\services\auth-interceptor.service.ts" />
+    <TypeScriptCompile Include="src\app\core\services\authorization.service.ts" />
+    <TypeScriptCompile Include="src\app\core\services\login.service.ts" />
+    <TypeScriptCompile Include="src\app\core\services\storage-helper.service.ts" />
+    <TypeScriptCompile Include="src\app\layout\components\footer\footer.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\layout\components\footer\footer.component.ts" />
+    <TypeScriptCompile Include="src\app\layout\components\header\header.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\layout\components\header\header.component.ts" />
+    <TypeScriptCompile Include="src\app\layout\components\sidebar\sidebar.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\layout\components\sidebar\sidebar.component.ts" />
+    <TypeScriptCompile Include="src\app\layout\services\application-header.service.ts" />
+    <TypeScriptCompile Include="src\app\layout\services\sidebar.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\actions\actions-routing.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\actions\actions.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\actions\components\action-card\action-card.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\actions\components\action-card\action-card.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\actions\components\action\action.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\actions\components\action\action.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\actions\services\fig-run-prices.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\backup-buyer\backup-buye-routing.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\backup-buyer\backup-buyer.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\backup-buyer\components\backup-buyer\assign-backup-buyer\assign-backup-buyer.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\backup-buyer\components\backup-buyer\assign-backup-buyer\assign-backup-buyer.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\backup-buyer\components\backup-buyer\assign-main-buyer\assign-main-buyer.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\backup-buyer\components\backup-buyer\assign-main-buyer\assign-main-buyer.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\backup-buyer\components\backup-buyer\backedup-projects\backedup-projects.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\backup-buyer\components\backup-buyer\backedup-projects\backedup-projects.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\backup-buyer\components\backup-buyer\backedup-projects\bakckedup-project-dialog\bakckedup-project-dialog.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\backup-buyer\components\backup-buyer\backedup-projects\bakckedup-project-dialog\bakckedup-project-dialog.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\backup-buyer\components\backup-buyer\backup-buyer-for\backup-buyer-for.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\backup-buyer\components\backup-buyer\backup-buyer-for\backup-buyer-for.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\backup-buyer\components\backup-buyer\backup-buyer.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\backup-buyer\components\backup-buyer\backup-buyer.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\backup-buyer\components\backup-buyer\my-backup-buyers\my-backup-buyers.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\backup-buyer\components\backup-buyer\my-backup-buyers\my-backup-buyers.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\backup-buyer\interfaces\i-backup-buyer.ts" />
+    <TypeScriptCompile Include="src\app\modules\backup-buyer\services\back-buyer.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\commodity-impact\pricing-source-guard.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\components\contract-flow\add-pricing-mechanism\pricing-source-value-formatter.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\components\contract-reassign\contract-reassign.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\components\contract-reassign\contract-reassign.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\components\contracts-list\my-contracts\fig-volume-file-upload-modal.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\contract-guard.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\fig-master-data-maintenance\components\fig-master-data\fig-master-data-maintenance-file-upload-modal.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\fig-master-data-maintenance\components\fig-master-data\fig-master-data-maintenance.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\fig-master-data-maintenance\components\fig-to-fdd\fig-to-fdd.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\fig-master-data-maintenance\components\fig-to-fdd\fig-to-fdd.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\fig-master-data-maintenance\interfaces\ifig-master-data-maintenance.ts" />
+    <TypeScriptCompile Include="src\app\modules\fig-master-data-maintenance\fig-master-data-maintenance-routing.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\fig-master-data-maintenance\fig-master-data-maintenance.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\fig-master-data-maintenance\fig-master-data-guard.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\fig-master-data-maintenance\services\fig-master-data-maintenance.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\commodity-impact\commodity-impact-routing.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\commodity-impact\commodity-impact.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\commodity-impact\components\commodity-impact-flow\commodity-impact-flow.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\commodity-impact\components\commodity-impact-list\commodity-impact.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\commodity-impact\components\commodity-impact-list\pricesource-file-upload-modal.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\commodity-impact\interfaces\icommodity-impact.ts" />
+    <TypeScriptCompile Include="src\app\modules\commodity-impact\services\commodity-impact.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\components\contract-flow\add-contract\add-contract.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\components\contract-flow\add-contract\feedstock-value.directive.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\components\contract-flow\add-pricing-mechanism\add-pricing-mechanism.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\components\contract-flow\add-pricing-mechanism\pricing-mechanism-tab\pricing-mechanism-tab.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\components\contract-flow\contract-bu-allocation\contract-bu-allocation.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\components\contract-flow\contract-flow.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\components\contracts-filter\contracts-filter.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\components\contracts-filter\contracts-filter.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\components\contracts-list\contracts-list.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\components\contracts-list\contracts-list.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\components\contracts-list\my-contracts\my-contracts.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\components\contracts-list\my-contracts\my-contracts.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\components\contracts-list\my-drafts\my-drafts.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\components\contracts-list\my-drafts\my-drafts.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\contracts-routing.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\contracts.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\interfaces\i-contract-filter.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\interfaces\i-add-contract.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\interfaces\iContracts.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\services\contract-filter-service.ts" />
+    <TypeScriptCompile Include="src\app\modules\contracts-creation\services\contract.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\dashboard\components\dashboard\dashboard.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\dashboard\components\dashboard\dashboard.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\dashboard\dashboard-routing.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\dashboard\dashboard.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\dashboard\interfaces\idashboard.ts" />
+    <TypeScriptCompile Include="src\app\modules\dashboard\sevices\dashboard.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\fig-dashboard\components\fig-dashboard\fig-dashboard.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\fig-dashboard\fig-dashboard-routing.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\fig-dashboard\fig-dashboard.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\fig-dashboard\interfaces\ifig-dashboard.ts" />
+    <TypeScriptCompile Include="src\app\modules\fig-dashboard\services\fig-dashboard.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\help\components\help\help.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\help\help.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\help\help-routing.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\project-guard.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\project-flow\buallocation\buallocation.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\project-flow\buallocation\buallocation.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\project-flow\category-allocation\category-allocation.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\project-flow\category-allocation\category-allocation.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\project-flow\project-flow.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\project-flow\project-flow.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\project-flow\project-register\project-register.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\project-flow\project-register\project-register.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\project-reassign\assign-to-buyer\assign-to-buyer.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\project-reassign\assign-to-buyer\assign-to-buyer.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\project-reassign\assign-to-fna\assign-to-fna.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\project-reassign\assign-to-fna\assign-to-fna.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\project-reassign\assigned-project-list\assigned-project-list.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\project-reassign\assigned-project-list\assigned-project-list.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\project-reassign\project-reassign.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\project-reassign\project-reassign.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\projects-list\backup-buyer-projects\backup-buyer-projects.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\projects-list\backup-buyer-projects\backup-buyer-projects.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\projects-list\my-projects\my-projects.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\projects-list\my-projects\my-projects.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\projects-list\projects-list.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\components\projects-list\projects-list.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\interfaces\iproject-flow.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\interfaces\iprojects.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\project-routing.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\project.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\services\project.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\project-creation\services\project.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\fig-fdd-without-categories\fig-fdd-without-categories.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-card\report-card.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-card\report-card.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\buyers-desk\buyers-desk.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\buyers-desk\buyers-desk.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\fdd-apollo-i-template\fdd-apollo-i-template.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\fdd-apollo-i-template\fdd-apollo-i-template.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\fdd-monthly-ppv-comparison\fdd-monthly-ppv-comparison.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\fdd-monthly-ppv-comparison\fdd-monthly-ppv-comparison.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\fdd-monthly-ppv\fdd-monthly-ppv.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\fdd-monthly-ppv\fdd-monthly-ppv.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\fig-buyers-desk\fig-buyers-desk.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\fig-buyers-desk\fig-buyers-desk.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\fig-chronology-current-month\fig-chronology-current-month.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\fig-chronology-current-month\fig-chronology-current-month.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\fig-chronology-official-forecast\fig-chronology-official-forecast.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\fig-chronology-official-forecast\fig-chronology-official-forecast.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\fig-commodity-impact-current-month\fig-commodity-impact-current-month.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\fig-commodity-impact-current-month\fig-commodity-impact-current-month.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\fig-commodity-impact-official-forecast\fig-commodity-impact-official-forecast.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\fig-commodity-impact-official-forecast\fig-commodity-impact-official-forecast.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report-container\fna-desk\fna-desk.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report\report.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\components\report\report.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\interfaces\ireport-cards.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\interfaces\ireport.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\reports-routing.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\reports.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\reports\services\report.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\angular-grid\angular-grid.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\angular-grid\angular-grid.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\bar-chart\bar-chart.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\bar-chart\bar-chart.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\file-download\file-download.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\file-upload\file-upload-modal.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\file-upload\file-upload.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\filter\advanced\advanced.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\filter\advanced\advanced.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\filter\basic\basic.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\filter\basic\basic.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\filter\filter.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\filter\filter.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\line-chart\line-chart.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\line-chart\line-chart.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\modal\modal.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\modal\modal.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\modal\ModalStaticClass.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\notification\notification.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\notification\notification.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\pie-chart\pie-chart.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\pie-chart\pie-chart.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\world-map-chart\world-map-chart.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\components\world-map-chart\world-map-chart.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\directives\decimal-formatter-param.directive.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\directives\decimal-formatter-with-precision.directive.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\directives\decimal-two-place-formatter.directive.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\directives\decimal-formatter.directive.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\directives\currency-formatter.directive.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\directives\drag-and-drop.directive.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\directives\number-only.directive.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\directives\wholenumber.directive.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\interfaces\iangular-grid.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\interfaces\icommon.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\interfaces\ifilter.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\interfaces\iMap.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\pipes\limit-characters.pipe.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\pipes\reverse.pipe.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\pipes\decimalwithoutzero.pipe.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\pipes\unique.pipe.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\services\filter.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\services\modal.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\services\shared.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\shared\shared.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\allocation-keys-maintenance\allocation-file-upload-modal\allocation-file-upload-modal.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\allocation-keys-maintenance\allocation-file-upload-modal\allocation-file-upload.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\allocation-keys-maintenance\allocation-filter\allocation-filter.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\allocation-keys-maintenance\allocation-keys-maintenance.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\allocation-keys-maintenance\edit-allocation\edit-allocation.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\appollo-template-maintenance\appollo-template-maintenance.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\appollo-template-maintenance\appollo-template-maintenance.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\appollo-template\appollo-template-file-upload-modal.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\carry-over\carry-over.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\carry-over\carry-over.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\dummy-cycle-roll-over\dummy-cycle-roll-over.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\appollo-template\appollo-template.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\appollo-template\appollo-template.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\manage-cycles\add-edit-cycle\add-edit-cycle.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\manage-cycles\manage-cycles.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\manage-users\add-edit-user\add-edit-user.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\manage-users\manage-users.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\roll-over-contracts\roll-over-contracts.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\roll-over-contracts\roll-over-contracts.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\roll-over-future-projects\roll-over-future-projects.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\roll-over-future-projects\roll-over-future-projects.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\roll-over\roll-over.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\roll-over\roll-over.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\support.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\components\support.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\allocation-keys-guard.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\support-guard.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\interfaces\iAllocationKeysMaintenance.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\interfaces\isupport.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\services\support.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\services\support.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\support-routing.module.ts" />
+    <TypeScriptCompile Include="src\app\modules\support\support.module.ts" />
+    <TypeScriptCompile Include="src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="src\environments\environment.ts" />
+    <TypeScriptCompile Include="src\main.ts" />
+    <TypeScriptCompile Include="src\polyfills.ts" />
+    <TypeScriptCompile Include="src\test.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60681</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60681/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1663 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "variables.scss";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~ngx-bar-rating/themes/br-stars-theme';
+@import '~angular-archwizard/archwizard.css';
+@import '~highlight.js/styles/github.css';
+@font-face {
+    font-family: 'icomoon';
+    src: url('assets/fonts/ico-moon-v08/icomoon.eot?ykmfac');
+    src: url('assets/fonts/ico-moon-v08/icomoon.eot?ykmfac#iefix') format('embedded-opentype'), url('assets/fonts/ico-moon-v08/icomoon.ttf?ykmfac') format('truetype'), url('assets/fonts/ico-moon-v08/icomoon.woff?ykmfac') format('woff'), url('assets/fonts/ico-moon-v08/icomoon.svg?ykmfac#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+//Variable Overrides
+$border-radius: .65rem;
+$border-radius-lg: .7rem;
+$border-radius-sm: .6rem;
+$modal-fade-transform: scale(0.3);
+$modal-transition: transform .1s ease-out;
+
+@import "~bootstrap/scss/bootstrap";
+/* Change autocomplete styles in WebKit */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus  {
+    border:  none !important;
+    -webkit-text-fill-color:   $black !important;
+    -webkit-box-shadow:  0 0 0px 1000px  $white !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+input:-internal-autofill-selected {
+    background-color: #f2f2f2 !important;
+}
+
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-logo:before {
+    content: "\e9d8";
+}
+
+.icon-logout:before {
+    content: "\e966";
+}
+
+.icon-dashboard:before {
+    content: "\e90f";
+    -webkit-text-stroke: 0.1px;
+}
+
+.icon-projects:before {
+    content: "\e96c";
+    -webkit-text-stroke: 0.1px;
+}
+
+.icon-backup-buyer:before {
+    content: "\e947";
+    -webkit-text-stroke: 0.1px;
+}
+
+.icon-reports:before {
+    content: "\e970";
+}
+
+.icon-action:before {
+    content: "\e901";
+}
+
+.icon-module:before {
+    content: "\e929";
+    -webkit-text-stroke: 0.1px;
+}
+
+.icon-feedback:before {
+    content: "\e95c";
+    -webkit-text-stroke: 0.1px;
+}
+
+.icon-settings:before {
+    content: "\e978";
+}
+
+.icon-help:before {
+    content: "\e964";
+    -webkit-text-stroke: 0.1px;
+}
+
+.icon-calendar:before {
+    content: "\e949";
+}
+
+.icon-chemicals:before {
+    content: "\e94d";
+}
+
+.icon-copy:before {
+    content: "\e90c";
+}
+
+.icon-create-project:before {
+    content: "\e950";
+}
+
+.icon-delete:before {
+    content: "\e954";
+}
+
+.icon-download:before {
+    content: "\e956";
+}
+
+.icon-external-supply:before {
+    content: "\e958";
+}
+
+.icon-filter:before {
+    content: "\e9a1";
+}
+
+.icon-packaging:before {
+    content: "\e96a";
+}
+
+.icon-reassign:before {
+    content: "\e96e";
+}
+
+.icon-search:before {
+    content: "\e936";
+}
+
+.icon-upload:before {
+    content: "\e940";
+}
+
+.icon-support:before {
+    content: "\e93c";
+}
+
+.icon-roll-over:before {
+    content: "\e972";
+}
+
+.icon-carry-over:before {
+    content: "\e94b";
+}
+
+.icon-add-line:before {
+    content: "\e902";
+}
+
+.icon-hide-price:before {
+    content: "\e923";
+}
+
+.icon-price-source:before {
+    content: "\e92d";
+}
+
+.icon-run-prices:before {
+    content: "\e932";
+}
+
+.icon-send-email:before {
+    content: "\e938";
+}
+
+.icon-allocation-key:before {
+    content: "\e945";
+}
+
+.icon-transfer-data:before {
+    content: "\e93e";
+}
+
+.icon-fig-G:before {
+    content: "\e91b";
+}
+
+.icon-notification:before {
+    content: "\e99a";
+}
+
+.icon-excel-download:before {
+    content: "\e994";
+}
+
+.icon-excel-upload:before {
+    content: "\e9c0";
+}
+
+.icon-user-login:before {
+    content: "\e9c4";
+}
+
+.icon-FIG:before {
+    content: "\e99f";
+}
+
+.icon-FDD:before {
+    content: "\e99b";
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('assets/fonts/Montserrat-Regular.eot') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('assets/fonts/Montserrat-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('assets/fonts/Montserrat-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('assets/fonts/Montserrat-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('assets/fonts/Montserrat-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Montserrat-SemiBold';
+    src: url('assets/fonts/Montserrat-SemiBold.eot') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'Montserrat-SemiBold';
+    src: url('assets/fonts/Montserrat-SemiBold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Montserrat-SemiBold';
+    src: url('assets/fonts/Montserrat-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-SemiBold';
+    src: url('assets/fonts/Montserrat-SemiBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Montserrat-SemiBold';
+    src: url('assets/fonts/Montserrat-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('assets/fonts/Montserrat-Bold.eot') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('assets/fonts/Montserrat-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('assets/fonts/Montserrat-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('assets/fonts/Montserrat-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('assets/fonts/Montserrat-Bold.woff2') format('woff2');
+}
+
+
+body {
+    font-family: $montserratRegular !important;
+    margin: 0px !important;
+    background-color: $white !important;
+    overflow: hidden;
+}
+
+/*ROUND SLIDER TOGGLE*/
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb, .mat-slide-toggle .mat-slide-toggle-thumb {
+    background-color: #003daf;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+    background-color: rgba(0,0,0,.38);
+}
+
+.dashboard-main-content-wrapper {
+    padding-top: 45px;
+    padding-left: 65px;
+    padding-bottom: 50px;
+    padding-right: 10px;
+}
+
+.main-content-wrapper {
+    /*padding-top: 52px;
+    padding-left: 65px;
+    padding-bottom: 10px;
+    padding-right: 10px;*/
+}
+
+.primary-button-1, .primary-button-2 {
+    /*height: 30px !important;*/
+    border-radius: 20px !important;
+    background-color: $pri-dark-blue;
+    box-shadow: 2.5px 4.33px 5px 0px rgba(117, 117, 117, 0.18);
+    font-family: $montserratRegular;
+    /*font-size: 14px;*/
+    color: #ffffff;
+    padding: 0.7em 1em 0.7em !important;
+    line-height: 1 !important;
+    width: auto;
+    margin: 0.4em 0.4em 0 0 !important;
+}
+
+.primary-button-3 {
+    /*height: 32px !important;*/
+    width: 100px !important;
+    border-radius: 20px !important;
+    background-color: #ffffff;
+    box-shadow: 2.5px 4.33px 5px 0px rgba(117, 117, 117, 0.18);
+    font-family: $montserratRegular;
+    /*font-size: 14px;*/
+    color: $pri-dark-blue;
+    padding: 0.7em 1em 0.7em !important;
+    line-height: normal !important;
+    width: auto;
+    border-color: $pri-dark-blue !important;
+    border-style: solid !important;
+    margin: 0.4em 0.4em 0 0 !important;
+}
+
+.primary-button-4 {
+    /*height: 32px !important;*/
+    border-radius: 20px !important;
+    background-color: $pri-dark-blue;
+    box-shadow: 2.5px 4.33px 5px 0px rgba(117, 117, 117, 0.18);
+    font-family: $montserratRegular;
+    /*font-size: 14px;*/
+    color: #ffffff;
+    padding: 0.7em 1em 0.7em !important;
+    line-height: normal !important;
+    margin: 0.4em 0.4em 0 0 !important;
+}
+
+.primary-button-1:focus, .primary-button-2:focus, .secondary-button:focus, .tertiary-button:focus {
+    outline: none;
+}
+
+.primary-button-1 {
+    min-width: 120px !important;
+}
+
+.primary-button-2 {
+    min-width: 120px !important;
+}
+
+.secondary-button-1 {
+    /*height: 30px !important;*/
+    border-radius: 20px !important;
+    background-color: #a2b5d8;
+    box-shadow: 2.5px 4.33px 5px 0px rgba(117, 117, 117, 0.18);
+    font-family: $montserratRegular;
+    /*font-size: 12px;*/
+    color: $white;
+    padding: 0.7em 1em 0.7em !important;
+    line-height: normal !important;
+    min-width: 120px !important;
+    width: auto;
+    margin: 0.4em 0.4em 0 0 !important;
+}
+
+.secondary-button {
+    /*height: 30px !important;*/
+    border-radius: 20px !important;
+    background-color: $secondary-btn-background;
+    box-shadow: 2.5px 4.33px 5px 0px rgba(117, 117, 117, 0.18);
+    font-family: $montserratRegular;
+    /*font-size: 12px;*/
+    color: $white;
+    padding: 0.7em 1em 0.7em !important;
+    line-height: normal !important;
+    min-width: 120px !important;
+    width: auto;
+    margin: 0.4em 0.4em 0 0 !important;
+}
+
+
+.tertiary-button {
+    /*height: 30px !important;*/
+    background: none;
+    border-radius: 20px !important;
+    border-radius: 0 !important;
+    box-shadow: none;
+    /*font-size: 12px;*/
+    color: $secondary-btn-background;
+    font-family: $montserratRegular;
+    line-height: normal !important;
+    min-width: 120px !important;
+    width: auto;
+    margin: 0.4em 0.4em 0 0 !important;
+}
+
+.mat-button[disabled], .primary-button-1[disabled], .primary-button-2[disabled] {
+    background-color: #e6e6e6;
+}
+
+.mat-datepicker-toggle-default-icon {
+    color: #00a3e0 !important;
+}
+
+.mat-calendar, .mat-calendar-body {
+    font-family: $montserratRegular;
+    /*font-size: 12px;*/
+}
+
+.mat-calendar-period-button, .mat-calendar-body-selected {
+    background-color: $pri-mid-blue !important;
+    color: $white !important;
+    /*font-size: 12px;*/
+    font-family: $montserratRegular;
+}
+
+.mat-calendar-arrow {
+    border-top-color: #ffffff !important;
+}
+
+/*SLIDER CSS*/
+mat-slider {
+    width: 250px;
+}
+
+.mat-slider.mat-slider-horizontal .mat-slider-wrapper {
+    top: 43px !important;
+}
+
+.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+    background-color: #00a3e0;
+}
+
+.mat-accent .mat-slider-thumb, .mat-accent .mat-slider-thumb-label {
+    background-color: $pri-dark-blue;
+}
+
+.mat-slider-min-value.mat-slider-thumb-label-showing .mat-slider-thumb, .mat-slider-min-value.mat-slider-thumb-label-showing .mat-slider-thumb-label {
+    background-color: $pri-dark-blue;
+}
+
+.mat-form-field, .mat-form-field-appearance-legacy .mat-form-field-label, mat-select-panel, .mat-checkbox, .mat-select, .mat-select-panel .mat-option,
+.mat-select-value, mat-label, .mat-autocomplete-panel .mat-option, .mat-select-panel .mat-optgroup-label {
+    font-family: $montserratRegular !important;
+}
+
+.mat-form-field, .mat-form-field-appearance-legacy .mat-form-field-label, mat-select-panel, .mat-checkbox, .mat-select, mat-label, .mat-select-value {
+    /*font-size: 14px !important;*/
+}
+
+
+.mat-form-field-appearance-legacy .mat-form-field-label, mat-select-panel {
+    color: $black !important;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple, .mat-form-field.mat-focused .mat-form-field-underline {
+    background-color: $pri-dark-blue !important;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label, .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: $pri-dark-blue !important;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+.mat-primary .mat-pseudo-checkbox-checked, .mat-checkbox-checked.mat-primary .mat-checkbox-background {
+    background-color: $pri-mid-blue !important;
+}
+
+.mat-select-panel .mat-option, .mat-autocomplete-panel .mat-option {
+    /*height: 33px !important;*/
+    /*font-size: 12px !important;*/
+}
+
+.mat-select-panel .mat-optgroup-label {
+    height: 2em !important;
+    color: $black;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: $pri-dark-blue;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple),
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: $pri-dark-blue;
+}
+
+.mat-radio-container {
+    top: 2px !important;
+}
+
+.mat-radio-outer-circle, .mat-radio-inner-circle {
+    height: 15px !important;
+    width: 15px !important;
+}
+
+.mat-radio-outer-circle {
+    border-width: 1px !important;
+}
+
+.mat-radio-group, mat-radio-button {
+    font-family: $montserratRegular !important;
+    /*font-size: 14px !important;*/
+}
+
+.mat-radio-label-content {
+    padding-left: 0px !important;
+}
+
+
+/*.mat-select-value {
+  font-size: 12px;
+}*/
+/*TABLE CSS START*/
+table {
+    width: 100%;
+    border-collapse: inherit;
+    /*table-layout: fixed;*/
+}
+
+.mat-table thead {
+    background: $tableHeaderColor !important;
+    font-family: $montserratRegular;
+}
+
+
+th.mat-header-cell, .mat-sort-header-stem, .mat-sort-header-arrow {
+    color: #ffffff;
+    font-size: 12px;
+    font-family: $montserratSemiBold;
+}
+
+td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+    border-right: 1px solid rgba(0,0,0,.12);
+    padding-left: 10px !important;
+   
+}
+
+.mat-table tbody td {
+    font-family: $montserratRegular;
+    font-size: 12px;
+    padding-right: 12px;
+    height: 40px;
+    /*white-space: nowrap;*/
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+a, a:hover {
+    color: $anchorTagColor !important;
+    cursor: pointer !important;
+    font-family: $montserratRegular;
+}
+
+a:hover {
+    text-decoration: underline;
+    /*color: $white !important;*/
+}
+
+.table-action-icons, .table-action-icons:hover {
+    margin-right: 10px;
+    text-decoration: none !important;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+tr.mat-header-row, tr.mat-row {
+    height: 40px !important;
+}
+
+.mat-paginator-outer-container {
+    height: 40px;
+    overflow: hidden;
+    width: auto;
+    font-size: 12px;
+    font-family: Montserrat-Regular;
+    background-color: $white;
+    border: 1px solid #bdbfbf;
+    border-top: none;
+}
+
+.mat-paginator-container {
+    justify-content: flex-start !important;
+    padding-left: 5px !important;
+    min-height: 46px !important;
+
+    .mat-form-field {
+        width: 56px;
+    }
+
+    .mat-paginator-page-size {
+        min-width: 162px;
+    }
+}
+
+.mat-paginator-page-size-label {
+    margin: 0 4px 0 0 !important;
+}
+
+.actions-column-header {
+    min-width: 73px !important;
+    padding-right: 0 !important;
+}
+
+.actions-column-td {
+    padding-right: 0 !important;
+    white-space: nowrap;
+}
+
+.mat-footer-row {
+    height: 40px !important;
+}
+
+
+/*TABLE CSS END*/
+::ng-deep .amcharts-Sprite-group .amcharts-Container-group .amcharts-AmChartsLogo-group {
+    display: none !important;
+}
+
+
+.mat-menu-panel.side-bar-menu {
+    max-width: 380px !important;
+    background: transparent !important;
+    margin-left: 50px;
+    margin-top: -171px;
+}
+
+.mat-menu-panel.side-bar-menu.mat-elevation-z4 {
+    box-shadow: none !important;
+}
+
+.side-switch-main-div .mat-card .icon-common {
+  height: auto;
+}
+
+.side-bar-menu .mat-card.isMenuSelected a {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.side-bar-menu .mat-card.isMenuUnselected a {
+    cursor: pointer;
+}
+
+.side-bar-menu a {
+    border-color: transparent;
+}
+
+.no-records-message {
+    font-family: $montserratRegular;
+    /*font-size: 14px;*/
+}
+/*----------------------------------------------------------------------------LOADER CSS START----------------------------------------------------------------------------*/
+.loader-wrap {
+    position: fixed;
+    z-index: 105;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader-wrap {
+    /*background: url('assets/images/pg-logo-white-txt.svg') no-repeat center center rgba(0,0,0,0.2);*/
+    background-size: 50px;
+}
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+    stroke: $pri-dark-blue !important;
+}
+
+/*----------------------------------------------------------------------------LOADER CSS ENDS----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------SCROLL BAR CSS START-----------------------------------------------------------------------*/
+
+// Removed top & bottom scroll buttons
+// ::-webkit-scrollbar-button {
+//   border-bottom-left-radius: 8.5px;
+//   border-bottom-right-radius: 8.5px;
+// }
+
+::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+::-webkit-scrollbar-track {
+    //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #969a9b;
+    outline: 1px solid slategrey;
+    border-radius: 100px;
+}
+
+/*----------------------------------------------------------------------------SCROLL BAR CSS END-----------------------------------------------------------------------*/
+
+.mat-step-header:hover {
+    background-color: transparent;
+}
+
+.mat-step-header .mat-step-header-ripple {
+    display: none;
+}
+
+/*----------------------------------------------------------------------------MAP HOME BUTTON CSS START------------------------------------------------------------------*/
+.chart-home-button {
+    .home-button-div {
+        position: absolute;
+        top: 0;
+        left: 69%;
+        background: #d9d9d9;
+        border-radius: 2px;
+        padding: 0px;
+    }
+
+    .home-button {
+        min-width: 0px;
+        padding: 0px 2px 0px 2px;
+        line-height: 27px;
+    }
+
+    .home-button-icon {
+        font-size: 22px;
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+mat-horizontal-stepper {
+    background-color: $white !important;
+}
+
+.mat-stepper-horizontal, .mat-stepper-vertical, .mat-step-label {
+    font-family: $montserratRegular !important;
+    color: $black !important;
+}
+
+.mat-horizontal-content-container {
+    padding: 0px !important;
+}
+
+.mat-horizontal-stepper-header {
+    height: 45px !important;
+    padding: 0 !important;
+}
+
+/*.mat-horizontal-stepper-header[aria-selected="true"] {
+  border-bottom: 1px solid #333 !important;
+}*/
+
+.mat-step-header .mat-step-label.mat-step-label-selected {
+    border-bottom: 1px solid #333 !important;
+}
+
+.mat-horizontal-stepper-header-container {
+    width: 800px !important;
+}
+
+.mat-horizontal-content-container {
+    margin-top: 10px !important;
+}
+
+/*.mat-step-icon {
+    font-size: 11px !important;
+}*/
+
+.mat-step-header .mat-step-icon-selected {
+    background-color: $pri-mid-blue;
+}
+
+.mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+    background-color: green;
+}
+
+.mat-stepper-horizontal-line {
+    margin: 0 10px !important;
+}
+
+.summary-table {
+    background: $white;
+    height: calc(100vh - 160px);
+    overflow: auto;
+    border: 1px solid #bfbdbd;
+
+    .mat-header-cell {
+        min-width: 150px;
+    }
+
+    .mat-toolbar {
+        margin-top: 150px;
+        background-color: $white;
+        justify-content: center
+    }
+}
+
+.trigger-button, .trigger-button:focus {
+    border-radius: 50%;
+    width: 43px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.5em 0 0 !important;
+    float: left;
+    outline: none;
+    background-color: #ffffff;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.19);
+    cursor: pointer;
+}
+
+.trigger-button[disabled] {
+    background-color: $gray;
+    cursor: not-allowed !important;
+}
+
+.img-icon-small, .img-icon-big {
+    font-weight: 400;
+    color: $pri-dark-blue;
+}
+
+.img-icon-small {
+    font-size: 20px;
+}
+
+.img-icon-big {
+    font-size: 25px;
+}
+
+// .mat-paginator{
+//   background: $white;
+//   float: left;
+//   width: 100%;
+//     .mat-paginator-outer-container{
+//       max-width: 468px;
+//       height: 45px;
+//       float: left;
+//       min-height: 45px;
+//     }
+// }
+.page-header {
+    a {
+        display: flex;
+    }
+}
+
+button.mat-sort-header-button {
+    font-family: $montserratSemiBold;
+}
+
+.mat-sort-header-button:focus, .mat-sort-header-button:active {
+    outline: none;
+}
+
+.mat-menu-panel.feedback-right-menu {
+    min-width: 275px !important;
+    min-height: 310px;
+    margin-left: 55px;
+    margin-bottom: -3.4em;
+    overflow: hidden;
+}
+
+.mat-tab-label .mat-tab-label-content {
+    font-weight: bold;
+}
+
+.page-header {
+    span {
+        color: $pri-dark-blue !important;
+        font-family: $montserratSemiBold;
+    }
+}
+
+.mat-badge-content {
+    color: $pri-dark-blue;
+    background-color: $white;
+}
+
+.white-box-div {
+    border: 1px solid #bfbdbd;
+    background-color: $white;
+    padding: 10px 0 0 0;
+}
+
+
+
+
+.mat-table .mat-sort-header-button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    /*padding-left: 9px;*/
+}
+
+.header-text {
+    width: 100%;
+    display: block;
+    position: relative;
+    padding: 1em 0 1em 9px;
+    height: 40px;
+    background: $tableHeaderColor;
+}
+
+.header-dropdown {
+    width: 100%;
+    float: left;
+    height: 40px;
+}
+
+body .ui-multiselect {
+    background: #f2f2f2 !important;
+    width: 100% !important;
+    border: none !important;
+    border-radius: 0 !important;
+    height: 40px;
+}
+
+body .ui-multiselect .ui-multiselect-trigger {
+    background: #f2f2f2 !important;
+}
+
+body .ui-multiselect .ui-multiselect-label {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding-left: 10px;
+}
+
+th.mat-header-cell {
+    padding: 0 !important;
+}
+
+.mat-sort-header-container .mat-sort-header-arrow {
+    position: absolute;
+    top: 15px !important;
+    z-index: 0;
+    color: $white;
+    right: 0.8em;
+    top: 3px;
+}
+
+.ui-multiselect-panel .ui-multiselect-header .ui-multiselect-filter-container .ui-inputtext {
+    font-family: montserrat-regular;
+    font-size: 12px;
+}
+
+.summary-table .mat-table thead {
+    background: none !important;
+}
+
+.empty-selector {
+    height: 40px;
+    background: #f2f2f2;
+}
+
+.ui-multiselect-panel .ui-multiselect-items .ui-multiselect-item.ui-state-highlight {
+    background-color: transparent !important;
+    color: $black !important;
+}
+
+.ui-chkbox .ui-chkbox-box.ui-state-active {
+    border-color: $tableHeaderColor !important;
+    background-color: $tableHeaderColor !important;
+}
+
+/*MATERIAL TAB CSS START*/
+.mat-tab-label:not(:first-child) {
+    margin: 0 0px 0px 40px;
+}
+
+.mat-tab-label-container {
+    margin: 0px;
+}
+
+.mat-tab-header {
+    z-index: 2;
+    border-bottom: none !important;
+    padding-top: 10px;
+}
+
+.mat-tab-body-wrapper {
+    overflow: visible;
+}
+
+/*.mat-tab-body {
+  margin-top: -28px !important;
+}*/
+
+.mat-tab-body-content {
+    overflow-x: hidden;
+}
+
+.mat-tab-label {
+    font-family: $montserratSemiBold;
+    font-size: 16px;
+    height: 30px !important;
+    min-width: 96px;
+    color: $gray;
+    opacity: 1;
+    padding: 0px !important;
+}
+
+.mat-tab-label:focus, .mat-tab-label:active, .mat-tab-label-active {
+    color: $pri-dark-blue;
+    opacity: 1 !important;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: $pri-dark-blue;
+    height: 3px !important;
+}
+
+/*MATERIAL TAB CSS END*/
+
+/*MATERIAL CARD CSS START*/
+
+.mat-card {
+    min-height: 90px !important;
+    /*padding-right: 20px !important;
+  padding-bottom: 0px !important;*/
+    padding: 10px !important;
+    background-color: #ffffff;
+    border: 1px solid #bfbdbd;
+    cursor: pointer;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+
+    .icon-common {
+        /*font-size: 38px;
+    color: white;
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 25px;
+    padding: 7px;*/
+        width: 100%;
+        height: 100px;
+        /*color: coral;*/
+        font-size: 67px;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        float: left;
+    }
+}
+
+.actioncard-title {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: $montserratSemiBold !important;
+    font-size: 18px !important;
+}
+
+.actioncard-subtitle {
+    font-family: $montserratRegular !important;
+    font-size: 11px !important;
+    color: #454545 !important;
+}
+
+.action-card-container {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+
+.action-link {
+    border-color: #f1f2f6;
+    font-size: 18px !important;
+}
+
+.action-card-row {
+    margin: 10px -10px 0 10px;
+
+    .col-class {
+        padding-left: 0;
+        padding-right: 20px;
+        padding-bottom: 20px;
+    }
+}
+/*MATERIAL CARD CSS END*/
+.mat-list-item-content {
+    padding: 5px 16px 8px 16px !important;
+}
+
+::ng-deep .sidebar-tooltip, .mat-tooltip {
+    background-color: $white !important;
+    font-family: $montserratRegular !important;
+    border: 1px solid lightgray;
+    color: $black !important;
+}
+
+.ngx-datatable .datatable-header {
+    display: block;
+    overflow: hidden;
+    background-color: $tableHeaderColor;
+    color: $white;
+    font-family: $montserratSemiBold;    
+}
+
+.ngx-datatable.fixed-header .datatable-header .datatable-header-inner .datatable-header-cell {
+    padding: 10px;
+    border-right: 1px solid rgba(0,0,0,.12);
+}
+
+.ngx-datatable.fixed-row .datatable-scroll .datatable-body-row .datatable-body-cell {
+    border-right: 1px solid rgba(0,0,0,.12);
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    padding: 10px;
+}
+
+.ngx-datatable {
+    font-family: montserrat-regular;
+    font-size: 12px;
+    border: 1px solid #bfbdbd;
+}
+.paddingleftzero {
+    padding-left: 0px;
+}
+/* Boot CSS start here*/
+$aw-colors: ( '_': ( 'default': ( 'border-color-default': $light, 'background-color-default': $light, ), 'current': ( 'border-color-default': $primary, 'background-color-default': $primary, ), 'done': ( 'border-color-default': $success, 'background-color-default': $success, ) ), 'large-filled-symbols': ( 'default': ( 'symbol-color-default': black, ), 'current': ( 'symbol-color-default': white, ), 'done': ( 'symbol-color-default': white, ) ) );
+
+$aw-label-color-default: $secondary;
+
+@import '~angular-archwizard/archwizard';
+/*@import "~@ng-select/ng-select/themes/default.theme";*/
+
+
+//Custom Variables
+$bg-dark: #111111;
+
+.bg-blur-light {
+    background-color: rgba($color: #f8f9fa, $alpha: 0.85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+}
+
+.bg-blur-white {
+    background-color: rgba($color: #fff, $alpha: 0.85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+}
+
+.bg-blur-dark {
+    background-color: rgba($color: #5dbcd2, $alpha: 0.85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+}
+
+p, input, button, select, small, a, label, textarea {
+    font-weight: 300 !important;
+}
+
+.btn-circle {
+    border-radius: 10rem;
+}
+
+.btn-ion-icon {
+    padding: 0.5rem;
+    line-height: 0.5;
+    font-size: 1.3rem;
+}
+
+.btn-ion-icon.btn-sm {
+    padding: 0.25rem;
+    line-height: 0.3;
+    font-size: 0.8rem;
+}
+
+.btn-ion-icon.btn-lg {
+    padding: 0.6rem;
+    line-height: 0.6;
+    font-size: 1.5rem;
+}
+
+table {
+    thead, tbody {
+        font-size: 0.8rem;
+    }
+
+    tbody > tr a {
+        font-weight: normal;
+    }
+
+    tbody > tr .btn-link {
+        font-weight: normal;
+        font-size: 0.8rem;
+        margin: 0px;
+        padding: 0px
+    }
+}
+
+.dropdown-menu .dropdown-item {
+    font-size: 0.8rem;
+}
+
+.modal .modal-dialog.modal-full {
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+    margin: 0;
+}
+
+.modal .modal-dialog.modal-full .modal-content {
+    height: 100vh;
+    border: 0;
+    border-radius: 0;
+    overflow-y: auto;
+}
+
+.modal .modal-dialog.modal-dialog-centered .modal-content {
+    height: auto !important;
+}
+
+
+// Class overrides
+select.form-control {
+    -webkit-appearance: none;
+    background-image: url('assets/icons/chevron-down-outline.svg') !important;
+    background-repeat: no-repeat !important;
+    background-size: 16px;
+    background-position: right 10px top 50%;
+    padding-right: 35px;
+}
+
+.form-control[bsDatepicker] {
+    -webkit-appearance: none;
+    background-image: url('assets/icons/calendar-outline.svg') !important;
+    background-repeat: no-repeat !important;
+    background-size: 16px;
+    background-position: right 10px top 50%;
+    padding-right: 35px;
+}
+
+input.form-control[type=search] {
+    -webkit-appearance: none;
+    background-image: url('assets/icons/search.svg') !important;
+    background-repeat: no-repeat !important;
+    background-position: 10px !important;
+    background-size: 20px;
+    padding-left: 35px;
+}
+
+.form-control:disabled {
+    border-style: dashed !important;
+    background: white !important;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-radius: 0px;
+    padding-left: 0px;
+}
+
+.form-control:read-only {
+    background-color: $input-bg;
+}
+
+.ng-select {
+    border: 0px;
+    padding: 0px;
+
+    .ng-select-container {
+        border: $input-border-width solid $input-border-color;
+        min-height: $input-height;
+        @include border-radius($input-border-radius, 0);
+
+        .ng-value-container {
+            .ng-placeholder {
+                font-weight: 300;
+            }
+
+            .ng-value {
+                border-radius: 5px !important;
+
+                .ng-value-icon {
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius: 5px;
+                }
+
+                .ng-value-label {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+
+        .ng-arrow-wrapper {
+            -webkit-appearance: none;
+            background-image: url('assets/icons/chevron-down-outline.svg') !important;
+            background-repeat: no-repeat !important;
+            background-size: 16px;
+            background-position: right 10px top 50%;
+            padding-right: 35px;
+
+            .ng-arrow {
+                opacity: 0;
+            }
+        }
+    }
+
+    .ng-select-container:hover {
+        box-shadow: none;
+    }
+
+    .ng-dropdown-panel .ng-dropdown-panel-items .ng-option .ng-option-label {
+        font-size: 0.8rem;
+        font-weight: 300;
+    }
+}
+
+.ng-select.ng-select-opened .ng-select-container {
+    .ng-arrow-wrapper {
+        background-image: url('assets/icons/chevron-up-outline.svg') !important;
+    }
+}
+
+.table th, .table td {
+    vertical-align: middle !important;
+}
+
+.modal {
+    background-color: rgba($color: #000000, $alpha: 0.5); // Fix to show a 'backdrop' on nested modals
+}
+
+.modal-backdrop.show {
+    opacity: 0; // Hides the default modal backdrop to allow the above fix to work
+}
+
+.nav-pills > .nav-item {
+    margin-right: 5px;
+}
+
+.nav-pills > .nav-item > .nav-link:not(.disabled) {
+    cursor: pointer;
+}
+
+.nav-pills > .nav-item > .nav-link:not(.active):not(.disabled) {
+    background-color: $light;
+}
+
+.nav-pills > .nav-item > .nav-link:hover:not(.active) {
+    background-color: $gray-300;
+}
+
+.nav-pills > .nav-item > .nav-link.active {
+    background-color: $dark;
+}
+
+body .ui-inputtext {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.45rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+body .ui-inputtext:enabled:hover:not(.ui-state-error) {
+    border-color: #ced4da;
+}
+
+body .ui-autocomplete-panel .ui-autocomplete-items .ui-autocomplete-list-item {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.list-group-item {
+    background-color: transparent;
+}
+
+
+// Dark mode
+
+/*@media (prefers-color-scheme: dark) {
+  body {
+    background-color: $bg-dark;
+  }
+
+  .bg-white {
+    background-color: $bg-dark !important;
+  }
+
+  .bg-blur-dark {
+    background-color: rgba($color: rgb(11, 16, 22), $alpha: 0.85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+
+  .navbar-light {
+    .navbar-brand {
+      color: $navbar-dark-brand-color;
+  
+      @include hover-focus() {
+        color: $navbar-dark-brand-hover-color;
+      }
+    }
+  
+    .navbar-nav {
+      .nav-link {
+        color: $gray-500;
+  
+        @include hover-focus() {
+          color: $gray-400;
+        }
+  
+        &.disabled {
+          color: $gray-600;
+        }
+      }
+  
+      .show > .nav-link,
+      .active > .nav-link,
+      .nav-link.show,
+      .nav-link.active {
+        color: $gray-400;
+      }
+    }
+  }
+
+  .border, .border-right, .border-left, .border-top, .border-bottom {
+    border-color: $gray-800 !important;
+  }
+
+  .form-control, .form-control:focus {
+    background-color: $gray-900;
+    color: white;
+    border-color: $gray-800;
+  }
+
+  .form-control::-webkit-search-cancel-button{
+    -webkit-appearance: none;
+    height: 14px;
+    width: 14px;
+    border-radius: 7px;
+    background: $gray-700 !important;  
+    background-image: url('assets/icons/close-sharp.svg') !important;
+    background-repeat: no-repeat !important;
+  }
+
+  .text-secondary {
+    color: $gray-400 !important;
+  }
+
+  .btn-light {
+    background-color: $gray-900;
+    border-color: $gray-900;
+    color: white;
+  }
+
+  .btn-light:hover{
+    background-color: $gray-800;
+    border-color: $gray-800;
+    color: white;
+  }
+
+  .btn-light:active, .btn-light:focus {
+    background-color: darken($gray-800, 3%) !important;
+    border-color: darken($gray-800, 3%) !important;
+    color: white !important;
+  }
+
+  .popover {
+    background-color: $gray-900;
+  }
+
+  .bs-popover-right > .arrow::after,.bs-popover-auto[x-placement^=right] > .arrow::after {
+    border-right-color: $gray-900;
+  }
+
+  .bs-popover-bottom > .arrow::after,.bs-popover-auto[x-placement^=bottom] > .arrow::after {
+    border-bottom-color: $gray-900;
+  }
+
+  .bs-popover-top > .arrow::after,.bs-popover-auto[x-placement^=top] > .arrow::after {
+    border-top-color: $gray-900;
+  }
+
+  .bs-popover-left > .arrow::after,.bs-popover-auto[x-placement^=left] > .arrow::after {
+    border-left-color: $gray-900;
+  }
+
+  .list-group-item {
+    color: white;
+    border-color: $gray-800;
+  }
+
+  .list-group-item.list-group-item-action:hover {
+    background-color: $gray-800;
+    color: white;
+  }
+
+  .table .thead-light {
+    th {
+      color: $table-dark-color !important;
+      background-color: $gray-900 !important;
+      border-color: $gray-800 !important;
+    }
+  }
+
+  .table td {
+    color: white;
+    border-color: $gray-800;
+  }
+
+  .pagination > .page-item:not(.active) > .page-link {
+    background-color: $gray-900;
+    border-color: $gray-800;
+  }
+}*/
+
+.loader-wrap {
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader-wrap {
+    /*background: url('assets/img/pg.svg') no-repeat center center rgba(0,0,0,0.2);*/
+    background-size: 50px;
+}
+
+.spinner-border {
+    width: 4rem;
+    height: 4rem;
+    color: #003daf;
+}
+
+.remove-all .ng-clear-wrapper {
+    display: none;
+}
+
+/*End here*/
+
+.maincontentStyle {
+    overflow-y: auto !important;
+    height: 580px !important;
+}
+.handcursor {
+    cursor: pointer !important;
+}
+.iconsize-medium {
+    font-size: 1.5rem;
+}
+.full-width{
+    width:100% !important;
+}
+
+.align-center{
+    text-align:center;
+}
+.width-10-percent {
+    width: 10% !important;
+}
+
+.width-20-percent {
+    width: 20% !important;
+    /*white-space: normal;
+    word-wrap: break-word;
+    max-width: 20%;*/
+}
+
+.width-30-percent {
+    width: 30% !important;
+}
+
+.width-40-percent {
+    width: 40% !important;
+}
+
+.width-50-percent {
+    width: 50% !important;
+}
+
+.width-60-percent {
+    width: 60% !important;
+}
+.width-70-percent {
+    width: 70% !important;
+}
+
+.icon-vertical-align-bottom {
+    vertical-align: bottom;
+}
+th.mat-header-cell {
+    text-align: center;
+}
+aw-wizard-navigation-bar {
+    display: none !important;
+}
+content-center {
+    text-align: center !important;
+}
+.iconsize-medium-large {
+    font-size: 2rem;
+}
+.highlight {
+    background-color: #FFFF00
+}
+.button-radius {
+    border-radius: 0rem !important;
+}
+.solidborder-top {
+    border-top: 2px solid #bbb;
+}

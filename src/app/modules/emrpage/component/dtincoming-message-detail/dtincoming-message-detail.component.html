@@ -1,0 +1,650 @@
+<div class="main-content-wrapper">
+
+    <!--<div class="row action-card-row" style="overflow:auto;">
+        <div class="col-sm-6">
+            <div class="page-header">
+                <span>Message Details </span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+
+        </div>
+    </div>-->
+
+
+    <div>
+        <!--style="overflow:scroll; height: calc(110vh - 160px);overflow-x: hidden;"-->
+        <aw-wizard class="mt-5" #wizard [navBarLayout]="'large-filled-symbols'" style="margin-top: 0px !important">
+            <aw-wizard-step [stepTitle]="'Steptitle 1'" [navigationSymbol]="{ symbol: 'Start' }">
+                <ng-template awWizardStepTitle>
+                    <span class="hidden-sm-down"></span>
+
+                </ng-template>
+                <div class="centered-content">
+                    <div>
+                        <form #mainscreenfrom="ngForm">
+                            <div class="row action-card-row">
+                                <!--style="max-height:calc(110vh - 105px);overflow-x: hidden;"-->
+                                <div class="referrercontainer">
+                                    <!--<form #alloDataForm="ngForm">-->
+                                    <div class="personalization-tab-div">
+
+                                        <div class="row personalization-rows">
+                                            <div class="float-right createreferrer">
+
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row personalization-rows paddingbottom">
+
+                                            <div class="col-sm-4">
+                                                <!--<mat-form-field class="fullwidth">
+                                                    <input matInput placeholder="From" required name="From" [(ngModel)]="DTincomingmessagedetail.From"
+                                                           [disabled]="true">
+                                                </mat-form-field>-->
+                                                <label for="From">
+                                                    <span class="label-font">From </span>: {{DTincomingmessagedetail.From}}
+                                                </label>
+
+                                                <!--<input type="text" style="border: 0;box-shadow: none;" class="form-control noborderText" name="From" id="From" [disabled]="true" [(ngModel)]="DTincomingmessagedetail.From">-->
+                                            </div>
+                                            <!--<label for="To" class="col-sm-1 col-form-label">To</label>-->
+                                            <div class="col-sm-4">
+                                                <!--<mat-form-field class="fullwidth">
+                                                    <input matInput placeholder="To" required name="To" [(ngModel)]="DTincomingmessagedetail.To"
+                                                           [disabled]="true">
+
+                                                </mat-form-field>-->
+                                                <label for="To"><span class="label-font">To </span>: {{DTincomingmessagedetail.To}}</label>
+                                                <!--<input type="text" style="border: 0;box-shadow: none;" class="form-control noborderText" name="To" id="To" [disabled]="true" [(ngModel)]="DTincomingmessagedetail.To">-->
+                                            </div>
+
+                                            <div class="col-sm-4">
+
+
+                                                <!--<mat-form-field class="fullwidth">
+                                                    <input matInput placeholder="Received" required name="Received" [(ngModel)]="DTincomingmessagedetail.Received"
+                                                           maxlength="60" [disabled]="true">
+
+                                                </mat-form-field>-->
+                                                <label for="Received"><span class="label-font">Received </span>: {{DTincomingmessagedetail.Received | date: 'EEE, MMMM d, yyyy h:mm a'}}</label>
+                                                <!--<input type="text" style="border: 0;box-shadow: none;" class="form-control noborderText" name="Received" id="Received" [disabled]="true" [(ngModel)]="DTincomingmessagedetail.Received">-->
+                                            </div>
+                                        </div>
+                                        <div class="row personalization-rows paddingbottom">
+
+                                            <div class="col-sm-12">
+                                                <label for="Subject">
+                                                    <span class="label-font">Subject </span>: {{DTincomingmessagedetail.Subject}}
+                                                </label>
+                                                <!--<mat-form-field class="fullwidth">
+                                                    <input matInput placeholder="Subject" required name="From" [(ngModel)]="DTincomingmessagedetail.Subject"
+                                                           [disabled]="true">
+
+                                                </mat-form-field>-->
+                                                <!--<input type="text" style="border: 0;box-shadow: none;" class="form-control noborderText" name="Subject" id="Subject"
+                                                [disabled]="true" [(ngModel)]="DTincomingmessagedetail.Subject">-->
+                                            </div>
+                                            <!--<div class="col-sm-6">
+
+                                                <section class="example-section">
+                                                    <mat-slide-toggle class="example-margin" name="MessageProcessed"
+                                                                      [color]="color"
+                                                                      [checked]="DTincomingmessagedetail.MessageProcessed"
+                                                                      [(ngModel)]="DTincomingmessagedetail.MessageProcessed" [disabled]="true">
+                                                        Message Processed
+                                                    </mat-slide-toggle>
+                                                </section>
+                                            </div>-->
+
+                                        </div>
+                                        <div class="row personalization-rows form-group paddingbottom">
+                                            <div class="col-sm-12">
+                                                <span class="label-font">
+                                                    File Attachments/Choose One :
+                                                </span>
+                                                <div *ngFor="let option of DTIncomingXML.XMLattachment" class="form-check form-check-inline">
+                                                    <!--<input id="option.InComingMessageID_{{option.FileName}}" type="radio" name="fileradio" required
+                                                    [(ngModel)]="selectedfile" [value]='option.InComingMessageID'
+                                                    (change)="selectionfunction(option)">-->
+
+                                                    <input type="radio" name="fileradio" required
+                                                           [value]='option.InComingMessageID' [checked]='option.IsSelected'
+                                                           (change)="selectionfunction(option)">
+
+                                                    <label class="form-check-label handcursor" title="View File">
+                                                        <span><img src="../../../../../assets/images/xml-icon1.png" style="height:22px;" /></span>
+                                                        <span class="link-decoration" (click)="OpenXMLView(option)">{{option.FileName}}</span>
+
+                                                    </label>
+
+                                                </div>
+                                                <div *ngIf="(DTincomingmessagedetailprocessed?.FileName==undefined ||
+                                                     DTincomingmessagedetailprocessed?.FileName==null) && mainscreenfrom.submitted"
+                                                     class="text-danger">
+
+                                                    choose a file.
+
+                                                </div>
+
+                                                <!--<div class="radio">
+                                                    <label class="radio-inline"><input type="radio" name="optradio">Option 1</label>
+                                                    <label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
+                                                    <label class="radio-inline"><input type="radio" name="optradio">Option 3</label>
+                                                </div>-->
+                                            </div>
+
+                                        </div>
+                                        <div class="row personalization-rows paddingbottom">
+
+                                            <div class="col-sm-12">
+                                                <!--<mat-form-field class="fullwidth">
+                                                    <textarea matInput placeholder="MessageBody" required name="MessageBody" [(ngModel)]="DTincomingmessagedetail.MessageBody"
+                                                         cols="100"     [disabled]="true"></textarea>
+
+                                                </mat-form-field>-->
+                                                <label for="exampleFormControlTextarea1" class="label-font">Message :</label>
+                                                <textarea class="form-control" id="MessageBody" readonly name="MessageBody" rows="9"
+                                                          [(ngModel)]="DTincomingmessagedetail.MessageBody"></textarea>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row personalization-rows">
+
+                                            <div class="col-sm-6">
+                                                <!--<mat-form-field class="fullwidth">
+                                                    <mat-label>Action to be performed</mat-label>
+                                                    <mat-select [(ngModel)]="DTincomingmessagedetail.Action" name="message_operation_Input" #OperationInput="ngModel" (selectionChange)="OnItemChange($event.value)" required>
+                                                        <mat-option *ngFor="let act of actionxml" [value]="act.value">
+                                                            {{act.viewValue}}
+                                                        </mat-option>
+                                                    </mat-select>
+
+                                                </mat-form-field>-->
+
+                                                <div style="display: flex;">
+                                                    <label style="width:300px;" class="label-font">Process Message As :</label>
+                                                    <select class="form-control" name="message_operation_Input" [(ngModel)]="DTincomingmessagedetail.Action"
+                                                            #message_operation_Input="ngModel" (ngModelChange)="OnItemChange($event)" required>
+                                                        <!--<option [value]=null>Select</option>-->
+                                                        <option *ngFor="let act of actionxml" [value]="act.value">{{act.viewValue}}</option>
+
+                                                    </select>
+
+                                                    <!--{{message_operation_Input.valid}}
+                                                    {{message_operation_Input.pristine}}
+                                                    {{message_operation_Input.invalid}}
+                                                    {{mainscreenfrom.submitted}}-->
+                                                </div>
+                                                <div *ngIf="message_operation_Input.invalid && mainscreenfrom.submitted"
+                                                     class="text-danger" style="padding-left:200px">
+
+                                                    Process Message action is required.
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <!--<div class="row personalization-rows">
+                                            <div class="col-sm-12">
+                                                <div class="float-right">
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>-->
+                                        <!--</form>-->
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row action-card-row">
+                                <!--style="overflow: auto;max-height: calc(100vh - 105px);overflow-x: hidden;"-->
+                                <!--<div class="referrercontainer">
+                                    <table mat-table [dataSource]="angularDataSource">
+
+                                        <ng-container matColumnDef="FileName">
+                                            <th mat-header-cell *matHeaderCellDef>
+                                                File Name
+                                            </th>
+                                            <td mat-cell *matCellDef="let element"> {{element.FileName}} </td>
+                                        </ng-container>
+
+
+                                        <ng-container matColumnDef="FileData">
+                                            <th mat-header-cell *matHeaderCellDef>
+                                                Action
+                                            </th>
+                                            <td mat-cell *matCellDef="let element">
+                                                <button mat-button class="primary-button-2" (click)="OpenXMLView(element)">View File</button>
+                                            </td>
+                                        </ng-container>
+
+                                        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                                            (click)="selectionfunction(row)"
+                                            [ngClass]="{hovered: row.hovered, highlighted: selection.isSelected (row)}"
+                                            (mouseover)="row.hovered = true" (mouseout)="row.hovered = false"></tr>
+
+                                    </table>
+                                    <mat-toolbar *ngIf="noRecordsMessage != ''" class="no-records-message"> {{ noRecordsMessage }} </mat-toolbar>
+                                </div>
+                                <mat-paginator *ngIf="angularDataSource?.data?.length > 0"
+                                               [length]="DTIncomingXML?.TotalRecords"
+                                               [pageIndex]="DTIncomingXML?.CurrentPage"
+                                               [pageSize]="DTIncomingXML?.PageSize"
+                                               [pageSizeOptions]="pageSizeOptions"
+                                               (page)="pageEvent = getPaginationData($event);"
+                                               showFirstLastButtons>
+                                </mat-paginator>-->
+                                <!-- <ul>-->
+                                <!--<div *ngFor="let option of DTIncomingXML.XMLattachment" class="custom-control custom-radio">
+                                    <input  class="custom-control-input" type="radio" id="option.InComingMessageID" name="option.FileName" value="option.InComingMessageID">
+                                    <label class="custom-control-label">
+                                        <span (click)="OpenXMLView(option)">{{option.FileName}}</span>
+                                    </label>
+                                </div>-->
+                                <!--</ul>-->
+
+                            </div>
+                            <div class="row action-card-row">
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-primary" (click)="saveDetails()" *ngIf="requestedAction=='edit' && (!IsRefererrPatientExist ||!isLastStep)">
+                                        <!--<ion-icon name="arrow-forward">Next</ion-icon>-->
+                                        Next
+                                        <!--*ngIf="!isLastStep"-->
+                                    </button>
+                                    &nbsp;
+                                    <button type="button" class="btn btn-primary" (click)="redirectMainPage()">
+                                        <!--<ion-icon name="arrow-forward">Cancel</ion-icon>-->
+                                        Cancel
+                                    </button>
+                                    <!--<button type="button" id="acceptID" class="btn btn-primary btn-ion-icon btn-circle mx-3" (click)="acceptDetails()" *ngIf="IsRefererrPatientExist">
+                                        <ion-icon name="arrow-forward">Accept</ion-icon>
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-ion-icon btn-circle mx-3" (click)="rejectDetails()" *ngIf="IsRefererrPatientExist">
+                                        <ion-icon name="arrow-forward">Reject</ion-icon>
+                                    </button>-->
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <!--<div class="btn-group">
+                        <button type="button" class="btn btn-secondary" awNextStep>Continue</button>
+                    </div>-->
+                    <!--<button type="button" class="btn btn-light btn-ion-icon btn-circle mx-3" (click)="goToPreviousStep()" *ngIf="hasPreviousStep">
+                        <ion-icon name="arrow-back">Previous</ion-icon>
+                    </button>-->
+
+                </div>
+            </aw-wizard-step>
+            <aw-wizard-step [stepTitle]="" [navigationSymbol]="{ symbol: FinishTitle=='2'?'Finish':'' }" *ngIf="!IsRefererrPatientExist && DTincomingmessageResponse.Operation != undefined">
+                <!--*ngIf="!IsRefererrPatientExist && DTincomingmessageResponse.Operation != undefined"-->
+                <div class="centered-content">
+                    <div>
+
+                        <!--<form #alloDataForm="ngForm">-->
+
+                        <div class="row action-card-row" style="overflow:auto;">
+                            <div class="col-sm-12">
+                                <div class="page-header">
+                                    <span *ngIf="DTincomingmessageResponse.Operation=='Referral'">
+                                        Patient match found, choose one of the patients below to import or click on create new patient to create brand new patient
+                                    </span>
+                                    <span *ngIf="DTincomingmessageResponse.Operation=='Plan of care approved'">Plan of care approval - Patient Match List</span>
+                                    <span *ngIf="DTincomingmessageResponse.Operation=='Plan of care declined'">Plan of care declined - Patient Match List</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row action-card-row">
+                            <!--style="overflow:auto;max-height:calc(110vh - 105px);"-->
+
+                            <div class="referrercontainer">
+                                <table mat-table [dataSource]="patientDataSource">
+                                    <!-- Position Column -->
+                                    <ng-container matColumnDef="Option">
+                                        <th mat-header-cell *matHeaderCellDef style="min-width:70px;"
+                                            [style.display]="DTincomingmessageResponse.Operation == 'Referral'?'none':'block'">
+                                            <div class="header-text">
+                                                Option
+                                            </div>
+                                        </th>
+                                        <td mat-cell *matCellDef="let element" class="padding-left option-column-style"
+                                            [style.display]="DTincomingmessageResponse.Operation == 'Referral'?'none':'block'">
+                                            <mat-radio-group name="Select" [(ngModel)]="selectedPatient">
+                                                <mat-radio-button [value]="element.Prowid">
+                                                </mat-radio-button>
+                                            </mat-radio-group>
+                                        </td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="Name">
+                                        <th mat-header-cell *matHeaderCellDef>
+                                            Name (First Last)
+
+                                        </th>
+                                        <td mat-cell *matCellDef="let element" [title]="element.FirstName" class="width-20-percent"> {{element.FirstName}} {{element.LastName}} </td>
+                                    </ng-container>
+
+                                    <!-- Name Column -->
+                                    <!--<ng-container matColumnDef="LastName">
+        <th mat-header-cell *matHeaderCellDef> LastName </th>
+        <td mat-cell *matCellDef="let element"> {{element.LastName}} </td>
+    </ng-container>-->
+                                    <ng-container matColumnDef="BirthDate">
+                                        <th mat-header-cell *matHeaderCellDef> DOB </th>
+                                        <td mat-cell *matCellDef="let element" [title]="element.BirthDate" class="width-20-percent"> {{element.BirthDate | date:'longDate'}} </td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="CellPh">
+                                        <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+                                        <td mat-cell *matCellDef="let element" [title]="element.CellPh" class="width-20-percent"> {{element.CellPh | phone:'US'}} </td>
+                                    </ng-container>
+
+                                    <ng-container matColumnDef="Address">
+                                        <th mat-header-cell *matHeaderCellDef> Address </th>
+                                        <td mat-cell *matCellDef="let element" class="width-20-percent"> {{element.Address1}}, {{element.City}}, {{element.State}} - {{element.ZipCode}}</td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="MRN">
+                                        <th mat-header-cell *matHeaderCellDef> MRN </th>
+                                        <td mat-cell *matCellDef="let element" class="width-20-percent"> {{element.MRNNumber}}</td>
+                                    </ng-container>
+
+
+                                    <!--<ng-container matColumnDef="City">
+        <th mat-header-cell *matHeaderCellDef> City </th>
+        <td mat-cell *matCellDef="let element"> {{element.City}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="State">
+        <th mat-header-cell *matHeaderCellDef> State </th>
+        <td mat-cell *matCellDef="let element"> {{element.State}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ZipCode">
+        <th mat-header-cell *matHeaderCellDef> ZipCode </th>
+        <td mat-cell *matCellDef="let element"> {{element.ZipCode}} </td>
+    </ng-container>-->
+                                    <!--<ng-container matColumnDef="TherapistName">
+        <th mat-header-cell *matHeaderCellDef> TherapistName </th>
+        <td mat-cell *matCellDef="let element"> {{element.TherapistName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Note">
+        <th mat-header-cell *matHeaderCellDef> Note </th>
+        <td mat-cell *matCellDef="let element"> {{element.Note}} </td>
+    </ng-container>-->
+                                    <ng-container matColumnDef="Action">
+
+                                        <th mat-header-cell *matHeaderCellDef [style.display]="DTincomingmessageResponse.Operation != 'Referral'?'none':'table-cell'">
+                                            <!--[style.display]="DTincomingmessageResponse.Operation != 'Referral'?'none':'contents'"-->
+                                            {{DTincomingmessageResponse.Operation == 'Referral'?'Import':'Action'}}
+                                        </th>
+                                        <td mat-cell class="align-center" *matCellDef="let element" [style.display]="DTincomingmessageResponse.Operation != 'Referral'?'none':'block'">
+
+                                            <a fxFlexFill href="" title="Import Patient" *ngIf="DTincomingmessageResponse.Operation == 'Referral'"
+                                               class="mat-row-link table-action-icons" style="text-align:center;"
+                                               (click)="!!importDetails(element.Prowid)">
+                                                <ion-icon name="download-outline" class="iconsize-medium handcursor"></ion-icon>
+
+
+                                            </a>
+                                            <!--<button mat-button [matMenuTriggerFor]="menu" *ngIf="DTincomingmessageResponse.Operation == 'Referral'">
+
+            <span fxFlexFill href="" matTooltip="Action" [matTooltipClass]="{'sidebar-tooltip': true}"
+                  class="mat-row-link icon-action table-action-icons">
+            </span>-->
+                                            <!--</button>
+            <mat-menu #menu="matMenu">
+
+                <span style="display:block">
+                    <a fxFlexFill href="" matTooltip="Create Patient" [matTooltipClass]="{'sidebar-tooltip': true}"
+                       class="mat-row-link icon-copy table-action-icons"
+                       (click)="!!createDetails(element.Prowid)">
+                        Create
+                    </a>
+                </span>
+                <span style="display:block">
+                    <a fxFlexFill href="" matTooltip="Import Patient" [matTooltipClass]="{'sidebar-tooltip': true}"
+                       class="mat-row-link icon-delete table-action-icons"
+                       (click)="!!importDetails(element.Prowid)">
+                        Import
+                    </a>
+                </span>
+
+            </mat-menu>-->
+                                        </td>
+                                    </ng-container>
+
+                                    <tr mat-header-row *matHeaderRowDef="patientdisplayedColumns; sticky: true"></tr>
+                                    <!--(click)="patientselectionfunction(row)"-->
+                                    <!--[ngClass]="{hovered: row.hovered, highlighted: patientselection.isSelected (row)}"
+    (mouseover)="row.hovered = true" (mouseout)="row.hovered = false"-->
+                                    <tr mat-row *matRowDef="let row; columns: patientdisplayedColumns;"></tr>
+                                </table>
+                                <mat-toolbar *ngIf="nopatientRecordsMessage != ''" class="no-records-message"> {{ nopatientRecordsMessage }} </mat-toolbar>
+                            </div>
+                            <mat-paginator *ngIf="patientDataSource?.data?.length > 0"
+                                           [length]="DTPatients?.TotalRecords"
+                                           [pageIndex]="DTPatients?.CurrentPage"
+                                           [pageSize]="DTPatients?.PageSize"
+                                           [pageSizeOptions]="pageSizeOptions"
+                                           (page)="pageEvent = getPatientPaginationData($event);"
+                                           class="full-width"
+                                           showFirstLastButtons>
+                            </mat-paginator>
+
+                        </div>
+                        <div class="row action-card-row">
+                            <div class="col-sm-12">
+                                <button type="button" class="btn btn-light" (click)="goToPreviousStep()" *ngIf="hasPreviousStep">
+                                    <!--<ion-icon name="arrow-back">Previous</ion-icon>-->
+                                    Previous
+                                </button>
+                                &nbsp;
+                                <button type="button" class="btn btn-primary" (click)="getPOCDetails()" *ngIf="!IsRefererrPatientExist && DTincomingmessageResponse.Operation != 'Referral'">
+                                    <!--<ion-icon name="arrow-forward">Next</ion-icon>-->
+                                    Next
+                                </button>
+                                &nbsp;
+                                <button type="button" class="btn btn-primary" title="Create Patient" (click)="!!createDetails()" *ngIf=" DTincomingmessageResponse.Operation == 'Referral'">
+                                    <!--<ion-icon name="arrow-forward">Create</ion-icon>-->
+                                    Create
+                                </button>
+                                &nbsp;
+                                <!--<button type="button" class="btn btn-primary" (click)="!!importDetails()" *ngIf=" DTincomingmessageResponse.Operation == 'Referral'">
+
+                                    Import
+                                </button>
+                                &nbsp;-->
+                                <button type="button" class="btn btn-primary" (click)="redirectMainPage()">
+                                    <!--<ion-icon name="arrow-forward">Cancel</ion-icon>-->
+                                    Cancel
+                                </button>
+
+                            </div>
+                        </div>
+
+
+                        <!-- </form>-->
+
+
+                        <div class="loader-wrap" *ngIf="loadingData">
+                            <mat-spinner [diameter]="70"></mat-spinner>
+                        </div>
+
+                    </div>
+
+                    <!--<div class="btn-group">
+                        <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
+                        <button type="button" class="btn btn-secondary" awNextStep>Continue</button>
+                    </div>-->
+                    <!--<button type="button" class="btn btn-primary btn-ion-icon btn-circle mx-3" (click)="goToNextStep()" *ngIf="!isLastStep">
+                        <ion-icon name="arrow-forward">Next</ion-icon>
+                    </button>-->
+                </div>
+            </aw-wizard-step>
+            <aw-wizard-step [stepTitle]="" [navigationSymbol]="{ symbol: FinishTitle=='3'?'Finish':'' }" *ngIf="IsRefererralstep2 && !IsRefererrPatientExist && DTincomingmessageResponse.Operation != 'Referral' && DTincomingmessageResponse.Operation != undefined">
+                <!--*ngIf="!IsRefererralstep2 && !IsRefererrPatientExist && DTincomingmessageResponse.Operation != 'Referral' && DTincomingmessageResponse.Operation != undefined"-->
+                <!--&& DTincomingmessageResponse.Operation != undefined"-->
+                <div class="centered-content">
+                    <div>
+
+                        <div class="row action-card-row" style="overflow:auto;">
+                            <div class="col-sm-6">
+                                <div class="page-header">
+
+                                    <span *ngIf="DTincomingmessageResponse.Operation=='Plan of care approved'">Plan of care approval - Note List</span>
+                                    <span *ngIf="DTincomingmessageResponse.Operation=='Plan of care declined'">Plan of care declined - Note List</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row action-card-row" style="overflow:auto;max-height:calc(110vh - 105px);">
+
+                            <div class="referrercontainer">
+                                <table mat-table [dataSource]="pocDataSource">
+                                    <!-- Position Column -->
+                                    <ng-container matColumnDef="Option">
+                                        <th mat-header-cell *matHeaderCellDef style="min-width:70px;">
+                                            <div class="header-text">
+                                                Option
+                                            </div>
+                                        </th>
+                                        <td mat-cell *matCellDef="let element" class="padding-left option-column-style">
+                                            <mat-radio-group name="Select" [(ngModel)]="selectedDOC">
+                                                <mat-radio-button [value]="element.Docrowid">
+                                                </mat-radio-button>
+                                            </mat-radio-group>
+                                        </td>
+                                    </ng-container>
+                                    <!--<ng-container matColumnDef="Docrowid">
+                                        <th mat-header-cell *matHeaderCellDef>
+                                            Docrowid
+
+                                        </th>
+                                        <td mat-cell *matCellDef="let element"> {{element.Docrowid}} </td>
+                                    </ng-container>
+
+
+                                    <ng-container matColumnDef="PTrowid">
+                                        <th mat-header-cell *matHeaderCellDef> PTrowid </th>
+                                        <td mat-cell *matCellDef="let element"> {{element.PTrowid}} </td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="NoteType">
+                                        <th mat-header-cell *matHeaderCellDef> NoteType </th>
+                                        <td mat-cell *matCellDef="let element"> {{element.NoteType}} </td>
+
+
+                                    </ng-container>-->
+                                    <ng-container matColumnDef="ApprovalSent">
+                                        <th mat-header-cell *matHeaderCellDef>Approval Request Sent On</th>
+                                        <td mat-cell *matCellDef="let element" [title]="element.ApprovalSent" class="width-20-percent">
+                                            {{element.ApprovalSent| date:'longDate'}}
+                                        </td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="TherapistName">
+                                        <th mat-header-cell *matHeaderCellDef>Therapist</th>
+                                        <td mat-cell *matCellDef="let element" [title]="element.TherapistName" class="width-50-percent">
+                                            {{element.TherapistName}}
+                                        </td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="PDFName">
+                                        <th mat-header-cell *matHeaderCellDef> PDF Sent for Approval </th>
+                                        <td mat-cell *matCellDef="let element" title="Download" class="width-20-percent content-center">
+                                            <!--<button type="button" class="btn btn-success" (click)="getPDF(element)" style="height: 35px;" title="Download">
+
+                                                <ion-icon name="cloud-download-outline"></ion-icon> Download PDF
+                                            </button>-->
+                                            <span class="handcursor" (click)="getPDF(element)">
+                                                <img src="../../../../../assets/images/download-pdf.png" style="height:24px;" />
+                                            </span>
+                                        </td>
+                                    </ng-container>
+
+
+
+
+
+                                    <!--<ng-container matColumnDef="Action">
+                                        <th mat-header-cell *matHeaderCellDef> Action </th>
+                                        <td mat-cell *matCellDef="let element">
+                                            <span fxFlexFill href="" matTooltip="Setting" [matTooltipClass]="{'sidebar-tooltip': true}"
+                                                  class="mat-row-link icon-action table-action-icons">
+                                            </span>
+                                        </td>
+                                    </ng-container>-->
+
+                                    <tr mat-header-row *matHeaderRowDef="pocdisplayedColumns; sticky: true"></tr>
+                                    <!--(click)="pocselectionfunction(row)"
+                                    [ngClass]="{hovered: row.hovered, highlighted: pocselection.isSelected (row)}"
+                                    (mouseover)="row.hovered = true" (mouseout)="row.hovered = false"-->
+                                    <tr mat-row *matRowDef="let row; columns: pocdisplayedColumns;"></tr>
+                                </table>
+                                <mat-toolbar *ngIf="nopocRecordsMessage != ''" class="no-records-message"> {{ nopocRecordsMessage }} </mat-toolbar>
+                            </div>
+                            <mat-paginator *ngIf="pocDataSource?.data?.length > 0"
+                                           [length]="DTPOCs?.TotalRecords"
+                                           [pageIndex]="DTPOCs?.CurrentPage"
+                                           [pageSize]="DTPOCs?.PageSize"
+                                           [pageSizeOptions]="pageSizeOptions"
+                                           (page)="pageEvent = getPOCPaginationData($event);"
+                                           class="full-width"
+                                           showFirstLastButtons>
+                            </mat-paginator>
+
+                        </div>
+                        <div class="row action-card-row">
+                            <div class="col-sm-12">
+                                <button type="button" class="btn btn-light" (click)="goToPreviousStep()" *ngIf="hasPreviousStep">
+                                    <!--<ion-icon name="arrow-back">Previous</ion-icon>-->
+                                    Previous
+                                </button>
+                                &nbsp;
+                                <button type="button" class="btn btn-primary" (click)="processPOC()">
+                                    <!--<ion-icon name="arrow-forward">Process Approval</ion-icon>-->
+                                    Process Approval
+                                </button>
+                                &nbsp;
+                                <button type="button" class="btn btn-primary" (click)="redirectMainPage()">
+                                    <!--<ion-icon name="arrow-forward">Cancel</ion-icon>-->
+                                    Cancel
+                                </button>
+
+                            </div>
+                        </div>
+
+
+                        <!-- </form>-->
+
+
+                        <div class="loader-wrap" *ngIf="loadingData">
+                            <mat-spinner [diameter]="70"></mat-spinner>
+                        </div>
+                    </div>
+
+                    <!--<div class="btn-group">
+                        <button type="button" class="btn btn-secondary" awPreviousStep>Back</button>
+                        <button type="button" class="btn btn-secondary" awResetWizard>Reset</button>
+                    </div>-->
+                    <!--<button type="button" class="btn btn-light btn-ion-icon btn-circle mx-3" (click)="goToPreviousStep()" *ngIf="hasPreviousStep">
+                        <ion-icon name="arrow-back">Previous</ion-icon>
+                    </button>
+                    <button type="button" class="btn btn-primary btn-ion-icon btn-circle mx-3" (click)="goToNextStep()" *ngIf="!isLastStep">
+                        <ion-icon name="arrow-forward">Next</ion-icon>
+                    </button>-->
+                </div>
+            </aw-wizard-step>
+        </aw-wizard>
+    </div>
+</div>
+
+<div class="loader-wrap" *ngIf="loadingData">
+    <mat-spinner [diameter]="70"></mat-spinner>
+</div>

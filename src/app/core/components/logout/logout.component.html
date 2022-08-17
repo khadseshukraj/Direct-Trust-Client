@@ -1,0 +1,38 @@
+<!--<div class="main-content-wrapper">
+  <mat-grid-list rowHeight="150" cols="1">
+    <mat-grid-tile [colspan]="1" class="logout-grid-tile">
+      <div>
+        <h1>Logout<small><font face="Tahoma" color="red"></font></small></h1>
+        <br />
+        <p><span *ngIf="autoLogout == 'true'">Oops! Timeout! You’ve been disconnected, please <a class="anchor-css" (click)="navigateToLogin()">log-in</a> again.</span></p>
+        <p><span *ngIf="autoLogout == 'false'">You have been logged out from the website. Please click this <a class="anchor-css" (click)="navigateToLogin()">link</a> to login again.</span></p>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>-->
+
+
+<div class="main-content-wrapper logout-padding">
+    <div class="container">
+        <div class="row">
+            <div class="text-left logout-text-container">
+                <h1>
+                    Logout
+                </h1>
+                <br />
+                <p>
+                    <span *ngIf="autoLogout == 'true'">
+                        Oops! Timeout! You’ve been disconnected, please
+                        <a class="anchor-css" (click)="navigateToLogin()">log-in</a> again.
+                    </span>
+                </p>
+                <p>
+                    <span *ngIf="autoLogout == 'false'">
+                        You have been logged out from the website. Please click this
+                        <a class="anchor-css" (click)="navigateToLogin()">link</a> to login again.
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
